@@ -9,15 +9,6 @@
       </div>
       <div class="page-about-us__wrapper">
         <?php echo do_shortcode( '[ask_form]' ) ?>
-        <div class="alert">
-          <span class="alert__icon"></span>
-          <p class="alert__message"></p>
-          <button class="alert__close">
-            <svg class="alert__close-icon">
-              <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/sprite.svg#icon-cancel"></use>
-            </svg>
-          </button>
-        </div>
         <div class="page-about-us__contact">
 
           <div class="requisites">
@@ -45,5 +36,15 @@
         </div>
       </div>
     </div>
+    <div class="alert">
+      <span class="alert__icon"></span>
+      <p class="alert__message"></p>
+      <button class="alert__close">
+        <svg class="alert__close-icon">
+          <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/sprite.svg#icon-cancel"></use>
+        </svg>
+      </button>
+    </div>
   </main>
+  <?php show_response_mail(); ?>
   <?php get_footer('about-us'); ?>

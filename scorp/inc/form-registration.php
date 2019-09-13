@@ -95,12 +95,18 @@
 
             <div class="form__footer form-registration__footer">
               <input type="hidden" name="custom_register_nonce" value="<?php echo wp_create_nonce('custom-register-nonce'); ?>"/>
-              <button class="form__button form-registration__button" type="submit">Регистрация</button>
+              <button class="form__button form-registration__button" name="action" type="submit">Регистрация</button>
               <label class="form__check form__anti-spam">
                 <input class="form__check-input form__anti-spam-checkbox" type="checkbox" name="no-robot" required>
                 <span class="form__check-box"></span>
                 Я не робот
               </label>
+              <script src="https://www.google.com/recaptcha/api.js?render=6LcGCbgUAAAAAIlAfX9eVWlvRY-CvGVGP78Kf61O"></script>
+              <script>
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6LcGCbgUAAAAAIlAfX9eVWlvRY-CvGVGP78Kf61O', {action: 'action'});
+                });
+              </script>
             </div>
 
           </fieldset>

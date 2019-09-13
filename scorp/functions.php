@@ -101,6 +101,39 @@
     }	
   }
 
+  function func_response_mail() {
+    static $form_result;
+    return isset($form_result) ? $form_result : ($form_result = new WP_Error(null, null, null));
+  }
+
+  function show_response_mail() {
+    if($codes = func_response_mail()->get_error_codes()) {
+      foreach($codes as $code) {
+        $message = func_response_mail()->get_error_message($code);
+        if ($message == 'success') {
+          echo '
+          <script>
+            let alert = document.querySelector(".alert");
+            let alertMessage = document.querySelector(".alert__message");
+            alertMessage.textContent = "Ваше сообщение отправлено!";
+            alert.classList.add("alert--success");
+            alert.style.display = "flex";
+          </script>';
+        }
+        if ($message == 'failure') {
+          echo '
+          <script>
+            let alert = document.querySelector(".alert");
+            let alertMessage = document.querySelector(".alert__message");
+            alertMessage.textContent = "Упс! Ошибка :(";
+            alert.classList.add("alert--error");
+            alert.style.display = "flex";
+          </script>';
+        }
+      }
+    }	
+  }
+
   /**
    * Adding new role "Inventor"
    */

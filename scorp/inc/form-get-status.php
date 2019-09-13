@@ -26,15 +26,21 @@
         <fieldset class="form__fieldset form-status__fieldset">
           <label class="form__label form-status__label">
             ФИО
-            <input class="form__input" type="text" name="full_name" placeholder="Иванов Иван Иванович">
+            <input class="form__input" type="text" name="full_name" value="<?php if(isset($_POST['full_name'])) {
+              echo $_POST['full_name'];
+            } ?>" placeholder="Иванов Иван Иванович">
           </label>
           <label class="form__label form-status__label">
             О себе
-            <textarea class="form__textarea form-status__textarea" name="about_me"></textarea>
+            <textarea class="form__textarea form-status__textarea" name="about_me"><?php if(isset($_POST['about_me'])) {
+              echo $_POST['about_me'];
+            } ?></textarea>
           </label>
           <label class="form__label form-status__label">
             Расскажите о своем проекте
-            <textarea class="form__textarea form-status__textarea" name="about_project"></textarea>
+            <textarea class="form__textarea form-status__textarea" name="about_project"><?php if(isset($_POST['about_project'])) {
+              echo $_POST['about_project'];
+            } ?></textarea>
           </label>
         </fieldset>
         <fieldset class="form__fieldset form-status__fieldset">
@@ -82,7 +88,9 @@
 
                 <div class="upload__file upload__file--upload upload__file--link">
                   <div class="upload__link">
-                    <input class="upload__file-input upload__link-input" type="text" name="link_project">
+                    <input class="upload__file-input upload__link-input" type="text" name="link_project" value="<?php if(isset($_POST['link_project'])) {
+                      echo $_POST['link_project'];
+                    } ?>">
                     <button class="upload__link-button" type="button">Ок</button>
                   </div>
                   <svg class="upload__file-icon upload__file-icon--plus">
@@ -122,13 +130,19 @@
           </div>
         </fieldset>
         <div class="form__footer form-status__footer">
-          <?php wp_nonce_field( 'get-status-nonce', 'get_status_nonce' ); ?>
+          <input type="hidden" name="get_status_nonce" value="<?php echo wp_create_nonce('get-status-nonce'); ?>"/>
           <button class="form__button form-status__button" name="action" value="get_status" type="submit">Отправить</button>
           <label class="form__check form__anti-spam">
             <input class="form__check-input form__anti-spam-checkbox" type="checkbox" name="no-robot" required>
             <span class="form__check-box"></span>
             Я не робот
           </label>
+          <script src="https://www.google.com/recaptcha/api.js?render=6LcGCbgUAAAAAIlAfX9eVWlvRY-CvGVGP78Kf61O"></script>
+          <script>
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LcGCbgUAAAAAIlAfX9eVWlvRY-CvGVGP78Kf61O', {action: 'action'});
+            });
+          </script>
         </div>
       </form> 
 
@@ -140,7 +154,7 @@
   function handler_get_status_form() {
     $current_user = wp_get_current_user();
 
-    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['action'] ) && wp_verify_nonce( $_POST['get_status_nonce'], 'get-status-nonce' ) ) {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['action'] ) && isset($_POST['get_status_nonce']) && wp_verify_nonce($_POST['get_status_nonce'], 'get-status-nonce') ) {
       $full_name 	          = $_POST["full_name"];
       $email_user           = $current_user->user_email;
       $about_me		          = $_POST["about_me"];
@@ -171,19 +185,25 @@
         $type = $_FILES['drawing_project']['type'];
         if (
             ($type != 'application/pdf') && 
-            ($type != 'application/msword') && 
-            ($type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') && 
             ($type != 'image/jpeg') &&
             ($type != 'image/png')
            ) 
         {
-          custom_errors()->add('drawing_project_type_error', 'Формат файла может быть только PDF, DOC, DOCX, JPG, PNG');
+          custom_errors()->add('drawing_project_type_error', 'Формат файла чертежа может быть только PDF, DOC, DOCX, JPG, PNG');
         }
 
         if ( ! function_exists( 'wp_handle_upload' ) ) {
           require_once( ABSPATH . 'wp-admin/includes/file.php' );
         }
-        $drawing_project = $_FILES['drawing_project'];
+
+        $file = $_FILES['drawing_project'];
+
+        $upload_overrides = array(
+          'test_form' => false
+        );
+
+        $drawing_project = wp_handle_upload( $file, $upload_overrides );
+
       } else {
         custom_errors()->add('drawing_project_empty', 'Без чертежа никак!');
       }
@@ -197,14 +217,26 @@
         $type = $_FILES['description_project']['type'];
         if (
             ($type != 'text/plain') && 
-            ($type != 'application/pdf') && 
+            ($type != 'application/pdf') &&
             ($type != 'application/msword') &&
             ($type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
            ) 
         {
-          custom_errors()->add('description_project_type_error', 'Формат файла может быть только TXT, PDF, DOC, DOCX');
+          custom_errors()->add('description_project_type_error', 'Формат файла описания может быть только TXT, PDF, DOC, DOCX');
         }
-        $description_project = $_FILES['description_project'];
+        
+        if ( ! function_exists( 'wp_handle_upload' ) ) {
+          require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        }
+
+        $file = $_FILES['description_project'];
+
+        $upload_overrides = array(
+          'test_form' => false
+        );
+
+        $description_project = wp_handle_upload( $file, $upload_overrides );
+
       } else {
         custom_errors()->add('description_project_empty', 'Без описания нельзя!');
       }
@@ -216,18 +248,31 @@
         }
         $type = $_FILES['file_project']['type'];
         if (
+            ($type != 'text/plain') &&
+            ($type != 'application/msword') &&
+            ($type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') && 
             ($type != 'application/pdf') && 
-            ($type != 'application/msword') && 
-            ($type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') &&
             ($type != 'image/jpeg') &&
             ($type != 'image/png')
            ) 
         {
-          custom_errors()->add('file_project_type_error', 'Формат файла может быть только PDF, DOC,JPG, PNG');
+          custom_errors()->add('file_project_type_error', 'Формат файла может быть только TXT, PDF, DOC, DOCX, JPG, PNG');
         }
-        $file_project = $_FILES['file_project'];
-      }
+        
+        if ( ! function_exists( 'wp_handle_upload' ) ) {
+          require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        }
 
+        $file = $_FILES['file_project'];
+
+        $upload_overrides = array(
+          'test_form' => false
+        );
+
+        $file_project = wp_handle_upload( $file, $upload_overrides );
+
+      }
+      
       if ( isset($_FILES['document_nda']['name']) && $_FILES['document_nda']['name'] != '' ) 
       {
         if ($_FILES['document_nda']['error']) {
@@ -235,14 +280,24 @@
         }
         $type = $_FILES['document_nda']['type'];
         if (
-            ($type != 'application/pdf') && 
-            ($type != 'application/msword') &&
-            ($type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+            ($type != 'application/pdf')
            ) 
         {
-          custom_errors()->add('document_nda_type_error', 'Формат файла может быть только PDF, DOC');
+          custom_errors()->add('document_nda_type_error', 'Формат файла NDA может быть только PDF, DOC, DOCX');
         }
-        $document_nda = $_FILES['document_nda'];
+        
+        if ( ! function_exists( 'wp_handle_upload' ) ) {
+          require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        }
+
+        $file = $_FILES['document_nda'];
+
+        $upload_overrides = array(
+          'test_form' => false
+        );
+
+        $document_nda = wp_handle_upload( $file, $upload_overrides );
+
       } else {
         custom_errors()->add('document_nda_empty', 'Без соглашения нельзя!');
       }
@@ -250,27 +305,41 @@
       $errors = custom_errors()->get_error_messages();
   
       if(empty($errors)) {
-        $to = 'avprinciple@gmail.com';
+        $to = 'info@scorp.ooo';
         $subject = 'Получение статуса';
         $message = "Имя: ". $full_name ."\r\n\r\n";
         $message .= "Почта: " . $email_user . "\r\n\r\n";
         $message .= "О себе:\r\n" . $about_me . "\r\n\r\n";
         $message .= "Описание проекта:\r\n" . $about_project . "\r\n\r\n";
-        $message .= "Test:\r\n" . $movefile . "\r\n\r\n";
         $message .= "Ссылка: " . $link_project . "\r\n\r\n";
+
         $headers = array(
+          'Content-Type: application/octet-stream',
+          'Content-Disposition: attachment',
           'From: скорп <info@scorp.ooo>'
         );
-  
-        wp_mail( $to, $subject, $message, $headers, 
-          array
-          (
-            $drawing_project['tmp_name'], 
-            $description_project['tmp_name'], 
-            $file_project['tmp_name'],
-            $document_nda['tmp_name']
-          ) 
+
+        $attachments = array(
+          $drawing_project['file'], 
+          $description_project['file'], 
+          $file_project['file'],
+          $document_nda['file']
         );
+  
+        $response_mail = wp_mail( $to, $subject, $message, $headers, $attachments);
+
+        if( $response_mail ) {
+          func_response_mail()->add('success', 'success');
+        } else {
+          func_response_mail()->add('failure', 'failure');
+        }
+
+        foreach ( (array)$attachments AS $file ) {
+          if( file_exists($file) ) {
+            unlink($file);
+          }
+        }
+
       }
     }
 

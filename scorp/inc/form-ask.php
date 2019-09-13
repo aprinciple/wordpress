@@ -23,15 +23,21 @@
           </div>
           <label class="form__label">
             Имя
-            <input class="form__input" type="text" name="user_name" placeholder="Иванов Иван Иванович" required>
+            <input class="form__input" type="text" name="user_name" value="<?php if(isset($_POST['user_name'])) {
+              echo $_POST['user_name'];
+            } ?>" placeholder="Иванов Иван Иванович" required>
           </label>
           <label class="form__label">
             E-mail
-            <input class="form__input" type="email" name="user_email" placeholder="ivanovich@gmail.com" required>
+            <input class="form__input" type="email" name="user_email" value="<?php if(isset($_POST['user_email'])) {
+              echo $_POST['user_email'];
+            } ?>" placeholder="ivanovich@gmail.com" required>
           </label>
           <label class="form__label">
             Сообщение
-            <textarea class="form__textarea" name="user_text"></textarea>
+            <textarea class="form__textarea" name="user_text"><?php if(isset($_POST['user_text'])) {
+              echo $_POST['user_text'];
+            } ?></textarea>
           </label>
           <div class="form__footer">
             <button class="form__button form-ask__button" name="action" value="ask" type="submit">Отправить</button>
@@ -40,6 +46,12 @@
               <span class="form__check-box"></span>
               Я не робот
             </label>
+            <script src="https://www.google.com/recaptcha/api.js?render=6LcGCbgUAAAAAIlAfX9eVWlvRY-CvGVGP78Kf61O"></script>
+            <script>
+              grecaptcha.ready(function() {
+                  grecaptcha.execute('6LcGCbgUAAAAAIlAfX9eVWlvRY-CvGVGP78Kf61O', {action: 'action'});
+              });
+            </script>
           </div>
         </fieldset>
       </form>   
@@ -69,13 +81,19 @@
       $errors = custom_errors()->get_error_messages();
   
       if(empty($errors)) {
-        $to = 'avprinciple@gmail.com';
+        $to = 'info@scorp.ooo';
         $subject = 'Вопрос';
         $message = "Имя:\r\n". $name ."\r\n\r\n";
         $message .= "Почта:\r\n". $email ."\r\n\r\n";
         $message .= "Текст вопроса:\r\n". $text ."\r\n\r\n";
   
-        wp_mail( $to, $subject, $message, $headers = '');
+        $response_mail = wp_mail( $to, $subject, $message, $headers = '');
+
+        if( $response_mail ) {
+          func_response_mail()->add('success', 'success');
+        } else {
+          func_response_mail()->add('failure', 'failure');
+        }
       }
     }
 

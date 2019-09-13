@@ -10,17 +10,6 @@
         </div>
       </div>
 
-      <div class="footer__yoda">
-        <div class="yoda yoda--no-inventor">
-          <button class="yoda__button">*</button>
-          <div class="yoda__alert">
-            <div class="yoda__alert-icon"></div>
-            <a class="yoda__alert-login-forum" href="#">Вход на форум</a>
-            <button class="yoda__alert-close">&#10005;</button>
-          </div>
-        </div>
-      </div>
-
       <div class="about-us">
         <button class="about-us__button">
           <svg class="about-us__button-icon">
@@ -33,7 +22,7 @@
             <a href="#" class="about-us__link about-us__link--manifest">Манифест</a>
           </li>
           <li class="about-us__item">
-            <a href="<?php echo home_url('about-us'); ?>" class="about-us__link">О проекте</a>
+              <a href="<?php echo home_url('about-us'); ?>" class="about-us__link">О проекте</a>
           </li>
           <li class="about-us__item">
             <a href="<?php echo home_url('privacy-policy'); ?>" class="about-us__link">Политика конфиденциальности</a>
@@ -74,7 +63,6 @@
 
     </div>
   </footer>
-
   <?php wp_footer(); ?>
 </body>
 
