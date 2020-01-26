@@ -37,6 +37,7 @@
     add_image_size( 'main-example-service', 500, 300, true );
     add_image_size( 'main-our-works-example', 520, 385, true );
     add_image_size( 'main-materials-example', 405, 340, true );
+    add_image_size( 'playgrounds-card', 375, 230, true );
   }
 
   /**
@@ -51,6 +52,43 @@
   /**
    * Filters
    */
+
+  add_action( 'init', 'register_post_cards' );
+  function register_post_cards(){
+    register_post_type('post-cards', array(
+      'label'  => null,
+      'labels' => array(
+        'name'               => 'Карточки',
+        'singular_name'      => 'Карточка',
+        'add_new'            => 'Добавить новую',
+        'add_new_item'       => 'Добавить карточку',
+        'edit_item'          => 'Редактирование карточки',
+        'new_item'           => 'Новая запись',
+        'view_item'          => 'Смотреть',
+        'search_items'       => 'Искать',
+        'not_found'          => 'Не найдено',
+        'not_found_in_trash' => 'Не найдено в корзине',
+        'parent_item_colon'  => '',
+        'menu_name'          => 'Карточки',
+      ),
+        'description'        => 'Записи страницы "Карточки"',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => true,
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 4,
+        'menu_icon'          => 'dashicons-admin-post',
+        'supports'           => array('title','editor','author','thumbnail','excerpt','custom-fields'),
+        'taxonomies'         => array(),
+        'map_meta_cap'       => 'true',
+        'can_export'         => 'true'
+    ) );
+  }
   
   /**
    * Setting excerpt
@@ -71,26 +109,6 @@
    * Hide admin bar
    */
   add_filter('show_admin_bar', '__return_false');
-
-  /**
-   * Check current user by role
-   */
-
-  function is_user_role_in( $roles, $user = false ) {
-    if( ! $user )           $user = wp_get_current_user();
-    if( is_numeric($user) ) $user = get_userdata( $user );
-
-    if( empty($user->ID) )
-      return false;
-
-    foreach( (array) $roles as $role )
-      if( isset($user->caps[ $role ]) || in_array($role, $user->roles) )
-        return true;
-
-    return false;
-  }
-  add_action('init', 'is_user_role_in');
-
 
   /**
    * Remove unnecessary tags of 'wp_head'

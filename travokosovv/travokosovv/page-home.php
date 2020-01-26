@@ -53,7 +53,7 @@
         <span class="nav-services__pointer nav-services__pointer--fence"></span>
       </div>
       <div class="nav-services__item nav-services__item--thuja">
-        <a class="nav-services__link" href="<?php the_field('nav-image-thuja'); ?>" target="_blank">Посадка туй</a>
+        <a class="nav-services__link" href="<?php the_field('nav-image-thuja'); ?>" target="_blank">Посадка растений</a>
         <span class="nav-services__pointer nav-services__pointer--thuja"></span>
       </div>
       <div class="nav-services__item nav-services__item--septic">
@@ -73,7 +73,7 @@
         <span class="nav-services__pointer nav-services__pointer--paving"></span>
       </div>
       <div class="nav-services__item nav-services__item--drainage">
-        <a class="nav-services__link" href="<?php the_field('nav-image-drainage'); ?>" target="_blank">Дренаж участка</a>
+        <a class="nav-services__link" href="<?php the_field('nav-image-drainage'); ?>" target="_blank">Дренаж фундамента</a>
         <span class="nav-services__pointer nav-services__pointer--drainage"></span>
       </div>
       <div class="nav-services__item nav-services__item--entry">
@@ -105,6 +105,7 @@
         <a class="services__button button" href="<?php the_field('example-service-link-1'); ?>" target="_blank">Подробнее</a>
       </div>
     </div>
+    
     <div class="services__item">
       <?php  
         $image = get_field('example-service-2');
@@ -214,31 +215,22 @@
 <section class="next-stage">
   <div class="next-stage__container container">
     <h2 class="next-stage__title">
-      Следующим этапом разрабатывается основной проект, в который входят:
+    Стоимость благоустройства участка
     </h2>
     <div class="next-stage__wrapper">
       <div class="next-stage__item">
+        <p class="next-stage__item-text">
+        При заключении договора с компанией TravokosovV продажа материалов осуществляется по выгодным ценам, а весь комплекс работ выполняется без оплаты услуг посредников. Это позволяет провести благоустройство дачного участка в СПБ недорого и с гарантией качества. Комплекс услуг, предоставляемых каждому заказчику, включает:
+        </p>
         <ul class="next-stage__list">
-          <li class="next-stage__list-item">генеральный план и дендроплан участка;</li>
-          <li class="next-stage__list-item">разбивочные чертежи мощения и посадки;</li>
-          <li class="next-stage__list-item">схемы устройства освещения, дренажа и автоматического полива;</li>
-          <li class="next-stage__list-item">ведомости озеленения с наименованием и количеством растений;</li>
-          <li class="next-stage__list-item">схемы отдельных композиционных групп;</li>
-          <li class="next-stage__list-item">визуализация и пояснительные записки.</li>
+          <li class="next-stage__list-item">предварительную консультацию по телефону и бесплатный выезд специалиста для оценки объекта;</li>
+          <li class="next-stage__list-item">выполнение проекта, включающего благоустройство и озеленение участка с учетом финансовой составляющей и пожеланий домовладельца;</li>
+          <li class="next-stage__list-item">демонтаж старых построек, сезонную уборку территории, обрезку сухих деревьев, вывоз мусора;</li>
+          <li class="next-stage__list-item">обустройство зон отдыха, строительство беседок;</li>
+          <li class="next-stage__list-item">устройство и обслуживание дренажной системы;</li>
+          <li class="next-stage__list-item">художественное оформление: мощение дорожек, въезда для транспорта;</li>
+          <li class="next-stage__list-item">cтроительство детских площадок с использованием разных игровых конструкций;</li>
         </ul>
-        <img class="next-stage__image" src="<?php echo get_template_directory_uri(); ?>/assets/img/next-stage.svg" alt="Следующий этап">
-      </div>
-      <div class="next-stage__item">
-        <p class="next-stage__item-text">
-          Как только проект готов и утвержден заказчиком, строители, озеленители и другие специалисты приступают к его
-          реализации под авторским надзором ландшафтного дизайнера.Чтобы заказать благоустройство участка в
-          Санкт-Петербурге и Ленинградской области, достаточно оставить заявку на сайте или связаться с нашими
-          консультантами по телефону, указанному на странице.
-        </p>
-        <p class="next-stage__item-text">
-          Мы также оказываем услуги по строительству частных домов и хозяйственных построек «под ключ». Более подробно
-          ознакомиться с условиями и технологиями возведения объектов можно в соответствующем разделе сайта.
-        </p>
       </div>
     </div>
   </div>
@@ -289,45 +281,12 @@
 <section class="price-beautification">
   <div class="price-beautification__container container">
     <div class="price-beautification__wrapper">
-      <h2 class="price-beautification__title">
-        Цена благоустройства и озеленения участка
-      </h2>
+      <h3 class="price-beautification__title">
+      Заказать благоустройство участка в Санкт-Петербурге
+      </h3>
       <p class="price-beautification__text">
-        Наша компания, в которой работает команда профессиональных строителей, ландшафтных дизайнеров и флористов,
-        любящих свое дело, предлагает следующие виды услуг:
+        В зависимости от пожеланий заказчика благоустройство территории участка включает посадку плодовых деревьев и кустарников, а также декоративной растительности, живой изгороди, бордюров из низкорослых кустарников. Особое внимание уделяется высадке цветников и оформлению многоуровневых композиций, которые украшают придомовую территорию и создают неповторимый дизайн частного дома или дачи в СПБ.
       </p>
-      <ol class="price-beautification__list">
-        <li class="price-beautification__list-item">
-          Бесплатную консультацию в офисе или с выездом на участок заказчика;
-        </li>
-        <li class="price-beautification__list-item">
-          Подготовку проекта по благоустройству земельного надела с учетом пожеланий владельца и особенностей рельефа;
-        </li>
-        <li class="price-beautification__list-item">
-          Благоустройство территории, включая:
-        </li>
-      </ol>
-      <ul class="price-beautification__list">
-        <li class="price-beautification__list-item">
-          Общестроительные работы с планировкой участка, демонтажем старых построек, вывозом мусора, выкорчевкой пней и
-          засохшей древесно-кустарниковой растительности;
-        </li>
-        <li class="price-beautification__list-item">
-          Устройство газонов, садовых дорожек, подпорных стенок и зон отдыха;
-        </li>
-        <li class="price-beautification__list-item">
-          Монтаж освещения, дренажной системы и ливневой канализации;
-        </li>
-        <li class="price-beautification__list-item">
-          Строительство искусственных водоёмов, фонтанов, беседок и бассейнов;
-        </li>
-        <li class="price-beautification__list-item">
-          Художественно-архитектурное оформление;
-        </li>
-        <li class="price-beautification__list-item">
-          Монтаж дорожного покрытия, заборов и ворот.
-        </li>
-      </ul>
     </div>
   </div>
 </section>

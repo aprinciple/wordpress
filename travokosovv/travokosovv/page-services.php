@@ -60,6 +60,103 @@
   </div>
 </div>
 
+<section class="post-table">
+  <div class="post-table__container container">
+    <?php 
+      $table = get_field( 'table-page-1' );
+      if ( ! empty ( $table ) ) {
+        echo '<div class="table">';
+          if ( ! empty( $table['caption'] ) ) {
+            echo '<span class="table__caption">' . $table['caption'] . '</span>';
+          }
+          echo '<div class="table__wrapper">';
+            if ( ! empty( $table['header'] ) ) {
+              echo '<div class="table__row table__head">';
+                foreach ( $table['header'] as $th ) {
+                  echo '<span class="table__header">';
+                    echo $th['c'];
+                  echo '</span>';
+                }
+              echo '</div>';
+            }
+            foreach ( $table['body'] as $tr ) {
+              echo '<div class="table__row">';
+                foreach ( $tr as $td ) {
+                  echo '<span class="table__cell">';
+                    echo $td['c'];
+                  echo '</span>';
+                }
+              echo '</div>';
+            }
+          echo '</div>';
+        echo '</div>';
+      }
+    ?>
+
+    <?php 
+      $table = get_field( 'table-page-2' );
+      if ( ! empty ( $table ) ) {
+        echo '<div class="table">';
+          if ( ! empty( $table['caption'] ) ) {
+            echo '<span class="table__caption">' . $table['caption'] . '</span>';
+          }
+          echo '<div class="table__wrapper">';
+            if ( ! empty( $table['header'] ) ) {
+              echo '<div class="table__row table__head">';
+                foreach ( $table['header'] as $th ) {
+                  echo '<span class="table__header">';
+                    echo $th['c'];
+                  echo '</span>';
+                }
+              echo '</div>';
+            }
+            foreach ( $table['body'] as $tr ) {
+              echo '<div class="table__row">';
+                foreach ( $tr as $td ) {
+                  echo '<span class="table__cell">';
+                    echo $td['c'];
+                  echo '</span>';
+                }
+              echo '</div>';
+            }
+          echo '</div>';
+        echo '</div>';
+      }
+    ?>
+
+    <?php 
+      $table = get_field( 'table-page-3' );
+      if ( ! empty ( $table ) ) {
+        echo '<div class="table">';
+          if ( ! empty( $table['caption'] ) ) {
+            echo '<span class="table__caption">' . $table['caption'] . '</span>';
+          }
+          echo '<div class="table__wrapper">';
+            if ( ! empty( $table['header'] ) ) {
+              echo '<div class="table__row table__head">';
+                foreach ( $table['header'] as $th ) {
+                  echo '<span class="table__header">';
+                    echo $th['c'];
+                  echo '</span>';
+                }
+              echo '</div>';
+            }
+            foreach ( $table['body'] as $tr ) {
+              echo '<div class="table__row">';
+                foreach ( $tr as $td ) {
+                  echo '<span class="table__cell">';
+                    echo $td['c'];
+                  echo '</span>';
+                }
+              echo '</div>';
+            }
+          echo '</div>';
+        echo '</div>';
+      }
+    ?>
+  </div>
+</section>
+
 <div class="page-services__make-request">
   <section class="make-request">
     <div class="make-request__container container">
