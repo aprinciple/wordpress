@@ -1,0 +1,12 @@
+{
+  "post_types": {
+    "post-staff": {},
+    "post-referral": {},
+    "post-project": {},
+    "post-news": {}
+  },
+  "taxonomies": {
+    "referral": {},
+    "project": {}
+  }
+}
