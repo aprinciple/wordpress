@@ -1,0 +1,31 @@
+.img_fit
+{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.img_contain
+{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+.img_contain_width
+{
+    object-fit: contain;
+    width: 100%;
+}
+
+.white_txt
+{
+    color: #F6F6F6 !important;
+}
+.black_txt
+{
+    color: #283043 !important;
+}
+
+.d-none
+{
+    display: none;
+}

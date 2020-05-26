@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>МАРО</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/helper.css" type="text/css">
+    <link rel="stylesheet" href="css/media.css" type="text/css">
+    <script type="text/javascript" src="js/vendor/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="bg">
+        <img class="image" src="img/backgrounds/bg-count.jpg" alt="">
+        <img class="mask dark-blue" src="img/backgrounds/bg-wave.svg" alt="">
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-11 col-md-8 col-sm-12 col-xs-12">
+                    <nav class="nav">
+                        <a href="index.html" class="logo"></a>
+                        <span id="btn-burger" class="btn-burger black-burger">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </span>
+                        <span id="menu-mob" class="menu-mob black_txt">Меню</span>
+                        <span id="menu-close" class="menu-close">&Cross;</span>
+                        <ul class="top-menu">
+                            <li><a href="about.html">О компании</a></li>
+                            <li><a href="companies.html">Портфолио</a></li>
+                            <li><a href="count.html">Рассчитать стоимость</a></li>
+                            <li><a href="faq.html">Вопросы и ответы</a></li>
+                            <li><a href="contacts.html">Контакты</a></li>
+                        </ul>
+                        <ul class="menu-footer">
+                            <li><a class="white_txt" href="#">Политика конфиденциальности</a></li>
+                            <li><a class="white_txt" href="#">Согласие на обработку данных</a></li>
+                            <li><div class="copyright white_txt">© 2012-2020</div></li>
+                        </ul>
+                    </nav>
+                </div>
+                    <div class="social">
+                        <a href="#" class="soc instagram-black"></a>
+                        <a href="#" class="soc facebook-black"></a>
+                        <a href="#" class="soc whatsapp-black"></a>
+                        <a href="#" class="soc youtube-black"></a>
+                    </div>
+            </div>
+        </div>
+    </header>
+    <aside class="catalog-nav">
+        <a href="index.html" class="logo"></a>
+        <div class="catalog-title"><img src="img/icons/arrow-catalog.svg" class="arrow" alt=""> Каталог</div>
+        <div class="catalog-icons">
+            <ul class="catalog-menu">
+                <li><a href="catalog-middle.html">Вывески и короба</a></li>
+                <li><a href="catalog-middle.html">Объемные буквы</a></li>
+                <li><a href="catalog-middle.html">Плоские буквы</a></li>
+                <li><a href="catalog-middle.html">Панель-кронштейны</a></li>
+                <li><a href="catalog-middle.html">Крышные установки</a></li>
+                <li><a href="catalog-min.html">Комплексное оформление</a></li>
+                <li><a href="catalog-min.html">Входные группы</a></li>
+                <li><a href="catalog-middle.html">Рекламные стеллы</a></li>
+                <li><a href="catalog-min.html">Таблички и инфо-стенды</a></li>
+                <li><a href="catalog-min.html">Плоттерная резка</a></li>
+                <li><a href="catalog-min.html">Дизйан</a></li>
+                <li><a href="catalog-min.html">Согласование вывесок</a></li>
+            </ul>
+        </div>
+    </aside>
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
+                    <div class="head">
+                        <h2>Рассчитать стоимость</h2>
+                        <br>
+                    </div>
+                    <div class="subhead"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 order-1 order-xs-2 order-lg-first">
+                    <form method="post" name="count-form" id="count-form" class="count-form" enctype="multipart/form-data">
+                        <div class="step1">
+                            <b>выберете интересующую категорию:</b>
+                            <select name="category" id="category">
+                                <option></option>
+                                <option>вывеска</option>
+                                <option>световой короб</option>
+                                <option selected>объемные буквы</option>
+                                <option>плоские буквы</option>
+                                <option>входная группа</option>
+                                <option>крышная установка</option>
+                                <option>рекламная стела</option>
+                                <option>бегущая строка</option>
+                                <option>комплексное оформление</option>
+                                <option>панель-кронштейны</option>
+                                <option>информационный стенд</option>
+                                <option>табличка или штендер</option>
+                                <option>согласование вывесок</option>
+                                <option>фрезерная и лазерная резка</option>
+                                <option>дизайн и полиграфия</option>
+                                <option>плоттерная резка и печать</option>
+                            </select>
+                        </div>
+                        <div class="step2">
+                            <b>какие сроки?</b>
+                            <p><label for="termChoice1" class="radio-container">"Вчера"
+                                <input type="radio" id="termChoice1" name="term" value="email"><span class="radiomark"></span></label></p>
+                            <p><label for="termChoice2" class="radio-container">1-3 дня
+                                <input type="radio" id="termChoice2" name="term" value="phone"><span class="radiomark"></span></label></p>
+                            <p><label for="termChoice3" class="radio-container">1-2 недели
+                                <input type="radio" id="termChoice3" name="term" value="mail"><span class="radiomark"></span></label></p>
+                            <p><label for="termChoice4" class="radio-container">Не тороплюсь
+                                <input type="radio" id="termChoice4" name="term" value="mail"><span class="radiomark"></span></label></p>
+                        </div>
+                        <div class="step3">
+                            <b>какие услуги будут нужны?</b>
+                            <p><label for="serviceChoise1" class="check-container">Монтаж
+                                <input type="checkbox" name="service" id="serviceChoise1" value="Монтаж"><span class="checkmark"></span></label></p>
+                            <p><label for="serviceChoise2" class="check-container">Дизайн
+                                <input type="checkbox" name="service" id="serviceChoise2" value="Дизайн"><span class="checkmark"></span></label></p>
+                            <p><label for="serviceChoise3" class="check-container">Согласование
+                                <input type="checkbox" name="service" id="serviceChoise3" value="Согласование"><span class="checkmark"></span></label></p>
+                            <p><label for="serviceChoise4" class="check-container">Замеры
+                                <input type="checkbox" name="service" id="serviceChoise4" value="Замеры"><span class="checkmark"></span></label></p>
+                        </div>
+                        <div class="step4">
+                            <b>укажите адрес размещения вывески</b>
+                            <input type="text" name="address" id="address" placeholder="например: ул. Красная 186">
+                        </div>
+                        <div class="step5">
+                            <b>есть макет? загрузите. или жмите далее</b>
+                            <p>файл</p>
+                            <button type="button" id="file-upload" class="file-upload"></button>
+                            <input type="file" name="file" id="file" class="d-none">
+                        </div>
+                        <div class="step6">
+                            <b>укажите телефон для связи:</b>
+                            <input type="text" name="phone" id="phone" placeholder="Номер телефона *">
+                        </div>
+                        <button type="button" class="btn prev-step">назад</button>
+                        <button type="button" class="btn next-step">далее</button>
+                        <button type="submit" class="btn count-btn">✓ узнать стоимость</button>
+                        <p class="rules-check">
+                            <label for="rules" class="check-container">даю согласие на <a href="#">обработку персональных данных</a>
+                                <input type="checkbox" name="rules" id="rules" value="yes"><span class="checkmark"></span></label>
+                        </p>
+                    </form>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="c-info">
+                        <p>Мы предоставим Вам 3 разных варианта дизайна и сметы</p>
+                        <p>Изготовим и установим вывеску за 3−7 дней</p>
+                        <p>Дадим гарантию до 5-ти лет. Если перегорит освещение или лопнет корпус, исправим за свой счет</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-0 col-xs-0"></div>
+                <div class="col-lg-8 col-md-1 col-sm-12 col-xs-12">
+                    <div class="confidence">
+                        <ul>
+                            <li><a href="#">Политика конфиденциальности</a></li>
+                            <li><a href="#">Согласие на обработку данных</a></li>
+                        </ul>
+                    </div>
+                    <div class="copyright">© 2012-2020</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script type="text/javascript" src="js/fixed-top.js"></script>
+<script type="text/javascript" src="js/quiz.js"></script>
+<script src="js/burger-menu.js"></script>
+<script>
+    jQuery(function($){
+        if ($(window).width() > 992 && $(window).width() < 1199) {
+            $('.confidence ul li a').removeClass('white_txt');
+            $('.copyright').removeClass('white_txt');
+            $('.confidence ul li a').addClass('black_txt');
+            $('.copyright').addClass('black_txt');
+        }
+    });
+</script>
+
+</body>
+</html>

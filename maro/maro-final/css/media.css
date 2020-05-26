@@ -1,0 +1,622 @@
+@media (min-width: 1200px) and (max-width: 1919px)
+{
+    .bg .map
+    {
+        width: 900px;
+        height: 900px;
+    }
+    .wave-up
+    {
+        width: 80%;
+        height: 55%;
+        background-size: 145% 100%;
+    }
+
+    .header .social
+    {
+        margin-right: 0;
+    }
+    .social .soc
+    {
+        margin-left: 12px;
+    }
+
+    .catalog-nav
+    {
+        width: 58px;
+    }
+    .catalog-nav .catalog-title
+    {
+        width: 100px;
+        margin: 60px 0 45px -36px; /*adaptive*/
+        font-size: 14px; /*adaptive*/
+    }
+    .catalog-title .arrow
+    {
+        width: 25px;
+        height: 25px;
+    }
+    .catalog-nav .catalog-icons
+    {
+        width: 25px;
+    }
+    .catalog-nav .catalog-menu
+    {
+        margin-left: 25px;
+    }
+    .catalog-menu li
+    {
+        padding-bottom: 5.5%;
+        font-size: 14px;
+    }
+
+    .content
+    {
+        min-height: 430px;
+    }
+    .logo-max
+    {
+        width: 460px;
+        height: 430px;
+        position: absolute;
+        top: 80px;
+        left: 200px;
+    }
+    .description
+    {
+        position: absolute;
+        top: 150px;
+        right: 0;
+    }
+
+    .head
+    {
+        margin-top: 50px;
+    }
+    .count-form
+    {
+        margin-top: 50px;
+    }
+    .c-info
+    {
+        margin-top: 120px;
+    }
+
+    .catalog-img-max
+    {
+        margin-top: 50px;
+    }
+    .catalog-description
+    {
+        top: 50px;
+    }
+    .light-trigger
+    {
+        left: 0;
+    }
+
+    .small-page
+    {
+        margin-bottom: 20%;
+    }
+
+    .footer .confidence ul li
+    {
+        margin-left: 50px;
+    }
+}
+@media (min-width: 1439px) and (max-width: 1919px)
+{
+	.catalog-nav .catalog-title
+    {
+        margin: 120px 0 100px -36px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px)
+{
+    .wave-up
+    {
+        width: 80%;
+        height: 60%;
+        background-size: 145% 100%;
+    }
+
+    .nav ul li
+    {
+        margin-left: 1%;
+    }
+    .nav ul li a
+    {
+        font-size: 12px;
+    }
+    .header .social
+    {
+        float: left;
+        margin-right: 0;
+    }
+    .social .soc
+    {
+        width: 18px;
+        height: 18px;
+        margin-left: 10px;
+    }
+    .social .youtube
+    {
+        width: 30px;
+        height: 22px;
+        margin-bottom: 0;
+    }
+
+    .catalog-nav
+    {
+        width: 40px;
+        padding-left: 12px;
+    }
+    .catalog-nav .catalog-title
+    {
+        width: 100px;
+        margin: 60px 0 70px -38px; /*adaptive*/
+        font-size: 12px; /*adaptive*/
+    }
+    .catalog-title .arrow
+    {
+        width: 25px;
+        height: 25px;
+    }
+    .catalog-nav .catalog-icons
+    {
+        width: 25px;
+    }
+    .catalog-nav .catalog-menu
+    {
+        margin-left: 25px;
+    }
+    .catalog-nav .catalog-menu
+    {
+        height: 100%;
+        background: rgba(246, 246, 246, 0.8);
+    }
+    .catalog-menu li
+    {
+        padding-bottom: 5.5%;
+        font-size: 14px;
+    }
+
+    .content
+    {
+        min-height: 330px;
+    }
+    .logo-max
+    {
+        width: 360px;
+        height: 330px;
+        top: 100px;
+        left: 230px;
+    }
+    .description
+    {
+        top: 150px;
+        right: 0;
+    }
+    .description h1
+    {
+        font-size: 24px;
+    }
+
+    .about
+    {
+        margin-top: 50px;
+    }
+
+    .head
+    {
+        margin-top: 50px;
+    }
+
+    .company
+    {
+        margin-right: -5px;
+    }
+
+    .services button
+    {
+        width: 290px;
+    }
+
+    .count-form
+    {
+        margin-top: 50px;
+    }
+    .c-info
+    {
+        margin-top: 120px;
+        font-size: 12px;
+    }
+
+    .contacts div
+    {
+        margin-top: 30px;
+    }
+
+    .house
+    {
+        margin-bottom: 150px;
+    }
+    .house-light
+    {
+        width: 484px;
+        height: 344px;
+    }
+    .house-dark
+    {
+        width: 484px;
+        height: 344px;
+    }
+    .info
+    {
+        margin-top: 50px;
+        font-size: 12px;
+    }
+    .info h4
+    {
+        font-size: 16px;
+    }
+    .son, .sonlight
+    {
+        margin-top: 100px;
+    }
+    .light-trigger
+    {
+        left: 0;
+    }
+    .scheme div
+    {
+        margin-right: 50px;
+    }
+
+    .catalog-img-max
+    {
+        margin-top: 50px;
+    }
+    .catalog-description
+    {
+        top: 50px;
+        font-size: 12px;
+    }
+
+}
+/*@media (min-width: 768px) and (max-width: 991px)
+{
+
+}*/
+@media screen and (max-width: 991px)
+{
+    .bg
+    {
+        display: none;
+    }
+    .main
+    {
+        background: url("../img/backgrounds/bg-mobile.jpg")no-repeat center center;
+        background-size: cover;
+    }
+    .wave-up
+    {
+        display: none;
+    }
+
+    .header
+    {
+        z-index: 15;
+    }
+    .btn-burger
+    {
+        display: inline-block;
+    }
+    .menu-mob
+    {
+        display: inline-block;
+    }
+    .menu-footer
+    {
+        display: block;
+        margin-top: 70%;
+    }
+    .copyright
+    {
+        text-decoration: underline;
+    }
+    .header .nav ul
+    {
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 15;
+        padding-left: 25px;
+        background: #84A3BE;
+    }
+    .header .nav ul li
+    {
+        display: block;
+    }
+    .header .nav ul li:first-child
+    {
+        margin-top: 30%;
+    }
+    .header .nav ul li a
+    {
+        color: #F6F6F6;
+    }
+    .header .social
+    {
+        display: none;
+    }
+
+    .advantage
+    {
+        width: 50%;
+    }
+
+    .catalog-nav
+    {
+        width: 45px;
+        padding-left: 12px;
+    }
+    .catalog-nav .logo
+    {
+        width: 27px;
+        height: 27px;
+        display: inline-block;
+        margin-top: 25px;
+        vertical-align: top;
+        background: url("../img/logo-mob.png") no-repeat;
+        background-size: cover;
+    }
+    .catalog-nav .catalog-title
+    {
+        width: 100px;
+        margin: 100px 0 60px -40px; /*adaptive*/
+        background-color: rgba(246, 246, 246, 0.8);
+    }
+    .catalog-title .arrow
+    {
+        width: 16px;
+        height: 16px;
+    }
+    .catalog-nav .catalog-menu
+    {
+        height: 100%;
+        background: none;
+    }
+    .catalog-nav .catalog-icons
+    {
+        width: 20px;
+    }
+    .catalog-menu li
+    {
+        padding-bottom: 5%;
+        padding-left: 10px;
+        font-size: 12px;
+    }
+    .catalog-icons:hover .catalog-menu
+    {
+        display: none;
+    }
+    .catalog-nav-popup
+    {
+        width: 250px;
+        z-index: 20;
+        background: rgba(246, 246, 246, 0.8);
+    }
+    .catalog-title-op
+    {
+        background: rgba(246, 246, 246, 0.8);
+    }
+
+    .content
+    {
+        margin-left: 50px;
+    }
+    .head
+    {
+        margin-top: 50px;
+    }
+
+    .logo-max
+    {
+        display: none;
+    }
+    .description
+    {
+        width: 100%;
+        top: 100px;
+        font-size: 12px;
+        text-align: center;
+    }
+    .description h1
+    {
+        font-size: 18px;
+        color: #F6F6F6;
+    }
+    .description p
+    {
+        color: #F6F6F6;
+    }
+
+    .company
+    {
+        width: 99px;
+        height: 78px;
+        margin-right: 15px;
+    }
+    .company:nth-child(5n+5)
+    {
+        margin-right: 15px;
+    }
+    .company:nth-child(2n+2)
+    {
+        margin-right: 0;
+    }
+    .company a
+    {
+        padding: 25% 6%;
+        font-size: 12px;
+    }
+    .services button
+    {
+        width: 100px;
+        line-height: 60px;
+        display: inline-block;
+        margin: 12px 0;
+        margin-right: 9px;
+        font-size: 8px;
+        color: #F6F6F6;
+        border-radius: 10px;
+        background: #84A3BE;
+    }
+
+    .service .portfolio-work
+    {
+        width: 100%;
+        border-radius: 10px;
+        background: #E5E5E5;
+    }
+    .portfolio-work img
+    {
+        width: 100%;
+        height: 100%;
+    }
+    .portfolio-work p
+    {
+        font-size: 12px;
+    }
+
+    .c-info
+    {
+        margin-top: 25px;
+        font-size: 12px;
+        color: #283043;
+    }
+
+    .faq
+    {
+        margin-top: 50px;
+    }
+    .hide + label,
+    .hide:checked + label {
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+    .hide:checked + label + div {
+        padding-left: 0;
+        font-size: 12px;
+    }
+
+    .contacts div
+    {
+        margin-top: 30px;
+    }
+    .map-mob
+    {
+        width: 250px;
+        height: 200px;
+        display: block;
+    }
+
+    .house
+    {
+        margin-bottom: 25px;
+    }
+    .house-light
+    {
+        /* display: none; */
+    }
+    .house-dark
+    {
+        display: none;
+    }
+    .house-light-mob
+    {
+        width: 100%;
+        height: 220px;
+        display: inline;
+    }
+    .house-dark-mob
+    {
+        width: 100%;
+        height: 220px;
+        display: none;
+    }
+    .info
+    {
+        margin-top: 25px;
+        font-size: 12px;
+        color: #283043;
+    }
+    .info.white_txt
+    {
+        color: #F6F6F6;
+    }
+    .info h4
+    {
+        font-size: 16px;
+    }
+    .son
+    {
+        width: 30px;
+        height: 30px;
+        margin-top: 50px;
+    }
+    .moon
+    {
+        width: 20px;
+        height: 26px;
+        background: url("../img/icons/moon-dark.svg")no-repeat;
+        background-size: contain;
+    }
+    .sonlight
+    {
+        width: 30px;
+        height: 30px;
+        margin-top: 50px;
+    }
+    .moonlight
+    {
+        width: 20px;
+        height: 26px;
+    }
+    .light-trigger
+    {
+        position: static;
+    }
+
+    .scheme, .characteristics, .slider
+    {
+        display: none;
+    }
+
+    .catalog-img-max
+    {
+        width: 267px;
+        height: 150px;
+        margin-top: 50px;
+    }
+    .catalog-description
+    {
+        position: relative;
+        display: block;
+        top: 50px;
+    }
+    .catalog-description p
+    {
+        color: #283043;
+    }
+
+    .footer
+    {
+        display: none;
+    }
+}
