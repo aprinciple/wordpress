@@ -1,4 +1,4 @@
-<?php get_template_part('template-parts/header-about-us') ?>
+<?php get_template_part('template-parts/header-post'); ?>
 <section class="promo-post">
 	<div class="promo-post__container container">
 		<div class="promo-post__item promo-post__item-text">

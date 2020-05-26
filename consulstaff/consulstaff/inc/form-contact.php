@@ -13,35 +13,50 @@ add_shortcode('form_contact', 'short_form_contact');
 
 // Markup for form_contact form
 function form_contact_fields() {
-
+  $frontpage_id = get_option( 'page_on_front' );
   ob_start(); ?>
     <form class="form form--post form-contact page-contacts__form" action="" method="POST">
       <h4 class="form__title page-contacts__form-title">
-      <?php the_field('form_title'); ?>
+        <?php the_field('contacts_form_title', $frontpage_id); ?>
       </h4>
       <p class="form__slogan page-contacts__form-slogan">
-      <?php the_field('form_subtitle'); ?>
+        <?php the_field('contacts_form_subtitle', $frontpage_id); ?>
       </p>
       <div class="form__wrapper form-contact__wrapper">
         <label class="form__label form-contact__label">
-          <span class="form__label-text"><?php the_field('form_name'); ?></span>
+          <span class="form__label-text">
+            <?php the_field('contacts_form_name', $frontpage_id); ?>
+          </span>
           <input class="form__input page-contacts__form-input" type="text" name="user_name" placeholder="Alex" required>
         </label>
         <label class="form__label form-contact__label">
-          <span class="form__label-text"><?php the_field('form_email'); ?></span>
+          <span class="form__label-text">
+            <?php the_field('contacts_form_mail', $frontpage_id); ?>
+          </span>
           <input class="form__input page-contacts__form-input" type="email" name="user_email" placeholder="email@gmail.com" required>
         </label>
       </div>
       <label class="form__label">
-        <span class="form__label-text"><?php the_field('form_message'); ?></span>
+        <span class="form__label-text">
+          <?php the_field('contacts_form_message', $frontpage_id); ?>
+        </span>
         <textarea class="form__textarea page-contacts__form-textarea" name="user_text" required></textarea>
       </label>
       <button class="form__button form-contact__button button button--rounded" type="submit">
-      <?php the_field('form_btn'); ?>
+        <?php the_field('contacts_form_button', $frontpage_id); ?>
       </button>
-      <input type="hidden" name="id_form_contact" value="id-form-contact">
-      <input type="hidden" name="form_contact_nonce" value="<?php echo wp_create_nonce('form-contact-nonce'); ?>">
-      <input type="hidden" id="g-recaptcha-response-contact" name="g-recaptcha-response-contact">
+      <input 
+        type="hidden" 
+        name="id_form_contact" 
+        value="id-form-contact">
+      <input 
+        type="hidden" 
+        name="form_contact_nonce" 
+        value="<?php echo wp_create_nonce('form-contact-nonce'); ?>">
+      <input 
+        type="hidden" 
+        id="g-recaptcha-response-contact" 
+        name="g-recaptcha-response-contact">
     </form>
     <script>
     grecaptcha.ready(function() {
@@ -74,7 +89,7 @@ function handler_form_contact() {
     $return = getCaptcha2($_POST['g-recaptcha-response-contact']);
 
     if($return->success == true && $return->score > 0.5) {
-      $to = 'avprinciple@gmail.com';
+      $to = 'info@consulstaff.com';
       $subject = 'Обратная связь';
       $message = "Имя:\r\n". $name ."\r\n\r\n";
       $message .= "Почта:\r\n". $email ."\r\n\r\n";

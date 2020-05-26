@@ -15,27 +15,45 @@ add_shortcode('form_home', 'short_form_home');
 function form_home_fields() {
 
   ob_start(); ?>
-    <form class="form form--post form-home_contact" action="" method="POST">
-      <h4 class="form__title"><?php the_field('home_contacts_form_title'); ?></h4>
-      <p class="form__slogan"><?php the_field('home_home_contacts_form_subtitle'); ?></p>
-      <div class="form__wrapper form-home_contact__wrapper">
-        <label class="form__label form-home_contact__label">
-          <span class="form__label-text"><?php the_field('home_contacts_form_name'); ?></span>
+    <form class="form form--post form-contact" action="" method="POST">
+      <h4 class="form__title">
+        <?php the_field('contacts_form_title'); ?>
+      </h4>
+      <p class="form__slogan">
+        <?php the_field('contacts_form_subtitle'); ?>
+      </p>
+      <div class="form__wrapper form-contact__wrapper">
+        <label class="form__label form-contact__label">
+          <span class="form__label-text">
+            <?php the_field('contacts_form_name'); ?>
+          </span>
           <input class="form__input" type="text" name="user_name" placeholder="Alex" required>
         </label>
-        <label class="form__label form-home_contact__label">
-          <span class="form__label-text"><?php the_field('home_contacts_form_mail'); ?></span>
+        <label class="form__label form-contact__label">
+          <span class="form__label-text">
+            <?php the_field('contacts_form_mail'); ?>
+          </span>
           <input class="form__input" type="email" name="user_email" placeholder="email@gmail.com" required>
         </label>
       </div>
       <label class="form__label">
-        <span class="form__label-text"><?php the_field('home_contacts_form_message'); ?></span>
+        <span class="form__label-text">
+          <?php the_field('contacts_form_message'); ?>
+        </span>
         <textarea class="form__textarea" name="user_text" required></textarea>
       </label>
-      <button class="form__button form-home_contact__button button button--rounded" type="submit"><?php the_field('home_contacts_form_button'); ?></button>
+      <button class="form__button form-contact__button button button--rounded" type="submit">
+        <?php the_field('contacts_form_button'); ?>
+      </button>
       <input type="hidden" name="id_form_home" value="id-form-home">
-      <input type="hidden" name="form_home_nonce" value="<?php echo wp_create_nonce('form-home-nonce'); ?>">
-      <input type="hidden" id="g-recaptcha-response-home" name="g-recaptcha-response-home">
+      <input 
+        type="hidden" 
+        name="form_home_nonce" 
+        value="<?php echo wp_create_nonce('form-home-nonce'); ?>">
+      <input 
+        type="hidden" 
+        id="g-recaptcha-response-home" 
+        name="g-recaptcha-response-home">
     </form>
     <script>
     grecaptcha.ready(function() {
@@ -68,7 +86,7 @@ function handler_form_home() {
     $return = getCaptcha2($_POST['g-recaptcha-response-home']);
 
     if($return->success == true && $return->score > 0.5) {
-      $to = 'avprinciple@gmail.com';
+      $to = 'info@consulstaff.com';
       $subject = 'Обратная связь';
       $message = "Имя:\r\n". $name ."\r\n\r\n";
       $message .= "Почта:\r\n". $email ."\r\n\r\n";

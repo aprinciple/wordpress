@@ -3,14 +3,22 @@
   $locale = determine_locale();
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo determine_locale(); ?>">
+<html lang="<?php echo $locale; ?>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <?php wp_head(); ?>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159071928-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-159071928-1');
+  </script>
 </head>
-<body <?php body_class('page-home'); ?>>
+<body <?php body_class(); ?>>
   <header class="header">
     <div class="header__nav-bar">
       <div class="nav-bar">
@@ -27,14 +35,30 @@
                 <div class="menu__language-switcher">
                   <?php get_template_part('template-parts/language-switcher') ?>
                 </div>
-                <div class="menu__wrapper-aside">
-                  <img class="menu__wrapper-aside-image" src="<?php echo get_template_directory_uri(); ?>/assets/img/bg-menu.svg" alt="Squared">
-                </div>
               </div>
             </nav>
           </div>
-          <?php get_template_part('template-parts/social-header') ?>
+          <a 
+            class="nav-bar__phone" 
+            href="tel:<?php the_field('main_contacts_phone', $frontpage_id); ?>">
+            <?php the_field('main_contacts_phone', $frontpage_id); ?>
+          </a>
+          <div class="nav-bar__language-switcher">
+            <?php get_template_part('template-parts/language-switcher') ?>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="header__advert-link">
+      <div class="advert-link">
+        <h3 class="advert-link__title">
+          INCENTIVI PER IL SOSTEGNO ALL’ACQUISTO DI SERVIZI PERL’INTERNAZIONALIZZAZIONE
+        </h3>
+        <a class="advert-link__link" 
+          href="<?php echo home_url(); ?>/incentivi">
+          Maggiori dettagli
+          <i class="advert-link__link-icon"></i>
+        </a>
       </div>
     </div>
     <div class="header__promo-slider">
@@ -187,18 +211,6 @@
         </span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="header__bar">
-      <div class="header__bar-container container">
-        <div class="header__bar-item">
-          <img class="header__bar-logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-bar.svg" alt="Consul Staff">
-        </div>
-        <div class="header__bar-item header__bar-aside">
-          <a class="header__bar-item-link" href="mailto:<?php the_field('main_contacts_mail', $frontpage_id); ?>"><?php the_field('main_contacts_mail', $frontpage_id); ?></a>
-          <a class="header__bar-item-link" href="tel:<?php the_field('main_contacts_phone', $frontpage_id); ?>"><?php the_field('main_contacts_phone', $frontpage_id); ?></a>
-          <?php get_template_part('template-parts/language-switcher') ?>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-<?php get_template_part('template-parts/header-services') ?>
+<?php get_template_part('template-parts/header-post'); ?>
   <section class="promo-post page-services__promo-post">
     <div class="promo-post__container container">
       <div class="promo-post__item promo-post__item-text">
@@ -72,7 +72,7 @@
           <h2 class="info-block__item-article-title page-services__info-block-title">
             <?php the_field('services_block-1-title'); ?>
           </h2>
-          <div class="info-block__item-article-wrapper">
+          <div class="info-block__item-article-wrapper page-services__info-block-article-text">
             <?php the_field('services_block-1-text'); ?>
           </div>
           <a class="button button-arrow page-services__info-block-button" href="<?php the_field('services_block-1-btn-link'); ?>">
@@ -97,7 +97,7 @@
           <h2 class="info-block__item-article-title page-services__info-block-title">
           <?php the_field('services_block-2-title'); ?>
           </h2>
-          <div class="info-block__item-article-wrapper">
+          <div class="info-block__item-article-wrapper page-services__info-block-article-text">
             <?php the_field('services_block-2-text'); ?>
           </div>
           <a class="button button-arrow page-services__info-block-button" href="<?php the_field('services_block-2-btn-link'); ?>">
@@ -122,7 +122,7 @@
           <h2 class="info-block__item-article-title page-services__info-block-title">
           <?php the_field('services_block-3-title'); ?>
           </h2>
-          <div class="info-block__item-article-wrapper">
+          <div class="info-block__item-article-wrapper page-services__info-block-article-text">
             <?php the_field('services_block-3-text'); ?>
           </div>
           <a class="button button-arrow page-services__info-block-button" href="<?php the_field('services_block-3-btn-link'); ?>">
@@ -147,7 +147,7 @@
           <h2 class="info-block__item-article-title page-services__info-block-title">
           <?php the_field('services_block-4-title'); ?>
           </h2>
-          <div class="info-block__item-article-wrapper">
+          <div class="info-block__item-article-wrapper page-services__info-block-article-text">
             <?php the_field('services_block-4-text'); ?>
           </div>
           <a class="button button-arrow page-services__info-block-button" href="<?php the_field('services_block-4-btn-link'); ?>">
@@ -172,7 +172,7 @@
           <h2 class="info-block__item-article-title page-services__info-block-title">
           <?php the_field('services_block-5-title'); ?>
           </h2>
-          <div class="info-block__item-article-wrapper">
+          <div class="info-block__item-article-wrapper page-services__info-block-article-text">
             <?php the_field('services_block-5-text'); ?>
           </div>
           <a class="button button-arrow page-services__info-block-button" href="<?php the_field('services_block-5-btn-link'); ?>">

@@ -7,7 +7,7 @@
   add_action('init', 'consull_post_type_referral');
   add_action('init', 'consull_post_type_project');
   add_action('init', 'consull_post_type_news');
-  // add_action( 'after_setup_theme', 'theme_add_thumbnails' );
+  add_action( 'after_setup_theme', 'theme_add_thumbnails' );
 
   // Wrapper function for css
   function enqueue_versioned_style( $handle, $src = false, $deps = array(), $media = 'all' ) {
@@ -23,7 +23,7 @@
   function theme_styles_scripts() {
     enqueue_versioned_style( 'style', '/assets/css/default.css' );
     enqueue_versioned_script( 'script', '/assets/js/script.js', array(), true );
-    wp_enqueue_script('recaptcha', 'https://www.google.com/recaptcha/api.js?render=6LfWx9IUAAAAAEhy2MbEGZ5c0ScWhM9yHkE8_QNU', '', 'null', );
+    wp_enqueue_script('recaptcha', 'https://www.google.com/recaptcha/api.js?render=6LfWx9IUAAAAAEhy2MbEGZ5c0ScWhM9yHkE8_QNU', array(), null, '');
   }
 
   // Setting name of title for every page of site
@@ -33,9 +33,9 @@
 
   // Adding thumbnails
   function theme_add_thumbnails() {
-    // add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-thumbnails' );
     // set_post_thumbnail_size(650, 450, true);
-    // add_image_size( 'post-news', 650, 450, true );
+    add_image_size( 'post-project', 800, 865, true );
   }
 
 add_action( 'after_setup_theme', 'aw_custom_add_image_sizes' );
@@ -58,6 +58,88 @@ function aw_custom_add_image_size_names( $sizes ) {
   ) );
 }
 
+ /**
+  * Setting the class name for pages
+  */
+
+  add_filter( 'body_class','my_class_names' );
+  function my_class_names( $classes ) {
+
+    // Pages
+    if( is_front_page() ) {
+      $classes[] = 'page-home';
+      return $classes;
+    }
+
+    if( is_page('about-us') ) {
+      $classes[] = 'page-about-us';
+      return $classes;
+    }
+
+    if( is_page('services') ) {
+      $classes[] = 'page-services';
+      return $classes;
+    }
+
+    if( is_page('corporate') ) {
+      $classes[] = 'page-corporate';
+      return $classes;
+    }
+
+    if( is_page('investing') ) {
+      $classes[] = 'page-investing';
+      return $classes;
+    }
+
+    if( is_page('business') ) {
+      $classes[] = 'page-business';
+      return $classes;
+    }
+
+    if( is_page('merger') ) {
+      $classes[] = 'page-merger';
+      return $classes;
+    }
+
+    if( is_page('projects') ) {
+      $classes[] = 'page-projects';
+      return $classes;
+    }
+
+    if( is_page('news') ) {
+      $classes[] = 'page-news';
+      return $classes;
+    }
+
+    if( is_page('contacts') ) {
+      $classes[] = 'page-contacts';
+      return $classes;
+    }
+
+    if( is_page('design') ) {
+      $classes[] = 'page-design';
+      return $classes;
+    }
+
+    if( is_page_template('templates/page-subsidy.php') ) {
+      $classes[] = 'page-subsidy';
+      return $classes;
+    }
+
+    // Posts
+    if ( get_post_type() === 'post-project' ) {
+      $classes[] = 'page-post-project';
+      return $classes;
+    }
+
+    if ( get_post_type() === 'post-news' ) {
+      $classes[] = 'page-post-news';
+      return $classes;
+    }
+
+    return $classes;
+  }
+
   /**
    * Register nav-menus of site
    */
@@ -66,6 +148,7 @@ function aw_custom_add_image_size_names( $sizes ) {
   // Forms
   require get_template_directory() . '/inc/form-contact.php';
   require get_template_directory() . '/inc/form-home.php';
+  require get_template_directory() . '/inc/form-subsidy.php';
 
 
     /**
@@ -81,57 +164,62 @@ function aw_custom_add_image_size_names( $sizes ) {
     // Pages
     if( is_front_page() ) {
       if ( $new_template = locate_template( array( 'templates/page-home.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('about-us') ) {
       if ( $new_template = locate_template( array( 'templates/page-about-us.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('services') ) {
       if ( $new_template = locate_template( array( 'templates/page-services.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('corporate') ) {
       if ( $new_template = locate_template( array( 'templates/page-corporate.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('investing') ) {
       if ( $new_template = locate_template( array( 'templates/page-investing.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('business') ) {
       if ( $new_template = locate_template( array( 'templates/page-business.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('merger') ) {
       if ( $new_template = locate_template( array( 'templates/page-merger.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('projects') ) {
       if ( $new_template = locate_template( array( 'templates/page-projects.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('news') ) {
       if ( $new_template = locate_template( array( 'templates/page-news.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('contacts') ) {
       if ( $new_template = locate_template( array( 'templates/page-contacts.php' ) ) )
-        return $new_template ;
+        return $new_template;
     }
 
     if( is_page('design') ) {
       if ( $new_template = locate_template( array( 'templates/page-design.php' ) ) )
-        return $new_template ;
+        return $new_template;
+    }
+
+    if( is_page_template('templates/page-subsidy.php') ) {
+      if ( $new_template = locate_template( array( 'templates/page-subsidy.php' ) ) )
+        return $new_template;
     }
 
     // Posts

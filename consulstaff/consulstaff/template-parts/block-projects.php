@@ -3,8 +3,31 @@
 ?>
 <div class="projects">
   <div class="projects__container container">
-    <h3 class="projects__title"><?php the_field('projects_title', $frontpage_id); ?></h3>
-    <h5 class="projects__subtitle"><?php the_field('projects_subtitle', $frontpage_id); ?></h5>
+    <h3 class="projects__title">
+      <?php the_field('projects_title', $frontpage_id); ?>
+    </h3>
+    <h5 class="projects__subtitle">
+      <?php 
+        if( is_page('home') ) {
+          the_field('projects_subtitle_home', $frontpage_id);
+        }
+        if( is_page('business') ) {
+          the_field('projects_subtitle_business', $frontpage_id);
+        }
+        if( is_page('merger') ) {
+          the_field('projects_subtitle_merger', $frontpage_id);
+        }
+        if( is_page('corporate') ) {
+          the_field('projects_subtitle_corporate', $frontpage_id);
+        }
+        if( is_page('investing') ) {
+          the_field('projects_subtitle_investing', $frontpage_id);
+        }
+        if( is_page('design') ) {
+          the_field('projects_subtitle_design', $frontpage_id);
+        }
+      ?>
+    </h5>
   </div>
   <div class="page-home__projects-slider project__slider slider-projects">
     <div class="slider-projects__items">
@@ -28,9 +51,9 @@
       if( is_page('design') ) {
         $current_page = 'design';
       }
-
       $args = array(
         'posts_per_page' => 4,
+        'nopaging' => true,
         'order'          => 'ASC',
         'post_type'      => 'post-project',
         'tax_query' => array(
@@ -50,7 +73,9 @@
           ?>
           <a class="slider-projects__item" href="<?php the_permalink(); ?>">
             <div class="slider-projects__inner">
-              <span class="slider-projects__inner-number">01</span>
+              <span class="slider-projects__inner-number">
+                0<?php echo $loop->current_post + 1 ?>
+              </span>
               <div class="slider-projects__inner-wrapper">
                 <h4 class="slider-projects__inner-title">
                 <?php the_title(); ?>
@@ -66,13 +91,20 @@
               </div>
             </div>
             <?php 
-              $image = get_field('project_image');
+              $image = get_field('projects_item_img', $frontpage_id);
               if( $image ) {
-                echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
+                echo wp_get_attachment_image( $image['id'], 'full', false, array( 
                   'class' => 'slider-projects__item-image',
                 ) );
               }
             ?>
+
+            <!-- <?php if ( has_post_thumbnail()) { ?>
+              <?php the_post_thumbnail('post-project', 
+                array(
+                  'class' => "slider-projects__item-image",
+                )); ?>
+            <?php } ?> -->
           </a>
           <?php
         }
@@ -101,7 +133,7 @@
       </div>
     </div>
   </div>
-  <a class="projects__button button button-arrow" href="#">
+  <a class="projects__button button button-arrow" href="<?php echo home_url(); ?>/projects">
     <span class="button-arrow__text"><?php the_field('projects_btn_all', $frontpage_id); ?></span>
   </a>
 </div>

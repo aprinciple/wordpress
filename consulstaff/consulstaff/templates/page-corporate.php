@@ -1,4 +1,4 @@
-<?php get_template_part('template-parts/header-corporate'); ?>
+<?php get_template_part('template-parts/header-post'); ?>
 <section class="promo-post page-corporate__promo-post">
   <div class="promo-post__container container">
     <div class="promo-post__item promo-post__item-text page-corporate__promo-post-item-text">
@@ -75,5 +75,8 @@
 </section>
 <section class="team-referral page-corporate__team-referral">
   <?php get_template_part('template-parts/block-team-referral'); ?>
+</section>
+<section class="page-corporate__clauses-services container">
+  <?php get_template_part('template-parts/block-clauses-services'); ?>
 </section>
 <?php get_footer(); ?>

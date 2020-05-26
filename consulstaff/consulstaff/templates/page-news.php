@@ -1,4 +1,4 @@
-<?php get_template_part('template-parts/header-news'); ?>
+<?php get_template_part('template-parts/header-post'); ?>
 <section class="promo-post page-news__promo-post">
   <div class="promo-post__container container">
     <div class="promo-post__item promo-post__item-text page-news__promo-post-item-text">
@@ -26,34 +26,34 @@
         while( $loop->have_posts() ) {
           $loop->the_post();
           ?>
-          <article class="card page-news__card">
-            <div class="card__picture page-news__card-picture">
-              <?php 
-                $image = get_field('promo_image');
-                if( $image ) {
-                  echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
-                    'class' => 'card__image page-news__card-image',
-                  ) );
-                }
-              ?>
-            </div>
-            <div class="card__content page-news__card-content">
-              <a class="card__link-title" href="<?php the_permalink(); ?>">
-                <h4 class="card__title page-news__card-title">
-                <?php the_title(); ?>
-                </h4>
-              </a>
-              <div class="card__text">
-              <?php the_excerpt() ?>
+          <a class="page-news__card" href="<?php the_permalink(); ?>">
+            <article class="card">
+              <div class="card__picture page-news__card-picture">
+                <?php 
+                  $image = get_field('promo_image');
+                  if( $image ) {
+                    echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
+                      'class' => 'card__image page-news__card-image',
+                    ) );
+                  }
+                ?>
               </div>
-            </div>
-          </article>
+              <div class="card__content page-news__card-content">
+                <h4 class="card__title page-news__card-title">
+                  <?php the_title(); ?>
+                </h4>
+                <div class="card__text">
+                <?php the_excerpt() ?>
+                </div>
+              </div>
+            </article>
+          </a>
           <?php
         }
         wp_reset_postdata();
       } 
     ?>
   </div>
-  <button class="page-news__button">Еще новости</button>
+  <!-- <button class="page-news__button">Еще новости</button> -->
 </main>
 <?php get_footer(); ?>

@@ -1,4 +1,7 @@
-<?php get_template_part('template-parts/header-projects'); ?>
+<?php get_template_part('template-parts/header-post'); ?>
+<?php 
+  $page_id = get_queried_object_id();
+?>
 <section class="promo-post page-projects__promo-post">
   <div class="promo-post__container container">
     <div class="promo-post__item promo-post__item-text page-projects__promo-post-item-text">
@@ -9,7 +12,7 @@
     </div>
   </div>
 </section>
-<main class="post-project__main container">
+<main class="page-projects__main container">
   <?php
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
     $args = array(
@@ -25,26 +28,33 @@
       while( $loop->have_posts() ) {
         $loop->the_post();
         ?>
-        <div class="post-project">
-          <div class="post-project__picture post-project__item-picture">
-            <!-- <?php the_post_thumbnail('post-project'); ?> -->
-            <img class="post-project__image" src="/" alt="Alt">
+        <div class="note-project">
+          <div class="note-project__picture">
+            <?php if ( has_post_thumbnail()) { ?>
+              <?php the_post_thumbnail('full', 
+                array(
+                  'class' => "note-project__image",
+                )); ?>
+            <?php } ?>
           </div>
-          <article class="post-project__article post-project__item-article">
-            <h3 class="post-project__article-title">
+          <article class="note-project__article">
+            <h3 class="note-project__article-title">
             <?php the_title(); ?>
             </h3>
-            <div class="post-project__article-excerpt">
+            <div class="note-project__article-excerpt">
             <?php the_excerpt() ?>
             </div>
-            <footer class="post-project__article-info">
-              <span class="post-project__article-info-tag">Digital lighting</span>
-              <span class="post-project__article-info-year">
+            <footer class="note-project__article-info">
+              <span class="note-project__article-info-tag">Digital lighting</span>
+              <span class="note-project__article-info-year">
               <?php echo get_the_date('Y'); ?>
               year
               </span>
-              <a class="post-project__article-info-link-more" href="<?php the_permalink(); ?>">
-              <?php the_field('projects_button_text'); ?>
+              <a class="note-project__article-info-link-more" 
+                href="<?php the_permalink(); ?>">
+                <?php
+                  the_field( 'projects_btn', $page_id );
+                ?>
               </a>
             </footer>
           </article>
