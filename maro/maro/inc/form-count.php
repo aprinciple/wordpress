@@ -151,14 +151,14 @@ function form_count_fields() {
         id="g-recaptcha-response-count" 
         name="g-recaptcha-response-count">
     </form>
-    <!-- <script>
+    <script>
     grecaptcha.ready(function() {
-      grecaptcha.execute('6LfWx9IUAAAAAEhy2MbEGZ5c0ScWhM9yHkE8_QNU', {action: 'count'})
+      grecaptcha.execute('6LdYRuYUAAAAANPdfG2S96uadzQBfF9BThAHRxPO', {action: 'count'})
         .then(function(token) {
           document.getElementById('g-recaptcha-response-count').value=token;
         });
       });
-    </script> -->
+    </script>
   
   <?php
   return ob_get_clean();
@@ -219,20 +219,19 @@ function handler_form_count() {
       //   $movefile['file'], 
       // );
 
-    // $text   = $_POST["user_text"];
-    // define('SITE_KEY', '6LfWx9IUAAAAAEhy2MbEGZ5c0ScWhM9yHkE8_QNU');
-    // define('SECRET_KEY', '6LfWx9IUAAAAALdH4Xm7HQ1DY9WclNaiYiWwARQ3');
+    define('SITE_KEY', '6LdYRuYUAAAAANPdfG2S96uadzQBfF9BThAHRxPO');
+    define('SECRET_KEY', '6LdYRuYUAAAAAOKvhjL3k7Uxw4nm3Y7SdMxSS0ho');
 
-    // function getCaptcha2($secretKey) {
-    //   $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret="."6LfWx9IUAAAAALdH4Xm7HQ1DY9WclNaiYiWwARQ3"."&response={$secretKey}");
-    //   $return = json_decode($response);
-    //   return $return;
-    // }
+    function getCaptcha2($secretKey) {
+      $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret="."6LdYRuYUAAAAAOKvhjL3k7Uxw4nm3Y7SdMxSS0ho"."&response={$secretKey}");
+      $return = json_decode($response);
+      return $return;
+    }
 
-    // $return = getCaptcha2($_POST['g-recaptcha-response-count']);
+    $return = getCaptcha2($_POST['g-recaptcha-response-count']);
 
-    if(true) { // $return->success == true && $return->score > 0.5
-      $to = 'avprinciple@gmail.com';
+    if($return->success == true && $return->score > 0.5) {
+      $to = 'info@maro-reklama.ru';
       $subject = 'Рассчёт стоимости';
       $message = "Категория: ". $category ."\r\n\r\n";
       $message .= "Срок: ". $term ."\r\n\r\n";
@@ -240,8 +239,7 @@ function handler_form_count() {
       $message .= "Адрес: ". $address ."\r\n\r\n";
       $message .= "Телефон: ". $phone ."\r\n\r\n";
       $headers = array(
-        'From' => 'avprinciple@gmail.com',
-        'Reply-To' => 'avprinciple@gmail.com'
+        'From: Maro <info@maro-reklama.ru>',
       );
       $response_mail = wp_mail( $to, $subject, $message, $headers, $attachment);
     }

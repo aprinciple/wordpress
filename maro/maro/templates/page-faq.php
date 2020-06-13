@@ -2,11 +2,10 @@
 /*
 Template name: Страница - Вопросы и ответы
 */
+get_header();
 ?>
-<?php get_header(); ?>
-<div class="wrapper">
-  <?php get_template_part('template-parts/block-header-post') ?>
   <?php get_template_part('template-parts/catalog-nav') ?>
+  <?= do_shortcode( '[form_callback]' ); ?>
   <section class="content">
     <?php the_post(); ?>
     <div class="container">
@@ -16,7 +15,6 @@ Template name: Страница - Вопросы и ответы
             <h2>
               <?php the_title(); ?>
             </h2>
-            <br>
           </div>
         </div>
       </div>
@@ -289,6 +287,4 @@ Template name: Страница - Вопросы и ответы
       </div>
     </div>
   </section>
-  <?php get_template_part('template-parts/block-footer'); ?>
-</div>
 <?php get_footer(); ?>

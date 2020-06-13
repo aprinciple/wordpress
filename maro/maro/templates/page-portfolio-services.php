@@ -1,69 +1,244 @@
 <?php 
 /*
-Template name: Страница - Портфолио-услуги
+Template name: Страница - портфолио - услуги - тег
 */
+get_header();
 ?>
-<?php get_header(); ?>
-<div class="wrapper">
-  <div class="bg">
-    <img class="mask" src="<?php echo get_template_directory_uri(); ?>/assets/img/backgrounds/bg-wave.svg" alt="Wave">
-  </div>
-  <?php get_template_part('template-parts/block-header-post') ?>
   <?php get_template_part('template-parts/catalog-nav') ?>
-  <section class="content">
-    <?php the_post(); ?>
+  <?= do_shortcode( '[form_callback]' ); ?>
+  <section class="content p-portfolio">
+    <?php 
+      the_post();
+      $current_page = get_the_ID();
+      global $current_page;
+    ?>
     <div class="container">
       <div class="row">
-        <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
-          <div class="head">
+        <div class="col-12">
+          <div class="head p-portfolio__title">
             <h2>
-              <?php if ( 0 == $post->post_parent ) {
-                the_title();
-              } else {
-                  $parents = get_ancestors( $post->ID, 'page', 'post_type' );
-                  echo esc_html( get_the_title( end($parents) ) );
-              } ?>
+              <?php the_title(); ?>
             </h2>
-            <a 
-              href="<?php echo esc_url( home_url( '/companies' ) ); ?>">
-              компании
-            </a> | 
-            <a 
-              href="<?php echo esc_url( home_url( '/services' ) ); ?>">
-              услуги
-            </a>
           </div>
-          <div class="subhead"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
-          <div class="services">
-            <?php 
-              $args = array(
-                'post_type'      => 'page',
-                'posts_per_page' => -1,
-                'post_parent'    => $post->ID,
-                'order'          => 'DESC',
-                // 'orderby'        => 'menu_order'
-              );
 
-              $parent = new WP_Query( $args );
+          <div class="portfolio-tabs">
+            <div class="portfolio-tabs__tabs">
+              <a 
+                id="portfolio-tab-works"
+                class="portfolio-tabs__tab"
+                href="#">
+                все работы
+              </a>
+              <a 
+                id="portfolio-tab-services"
+                class="portfolio-tabs__tab portfolio-tabs__tab--active"
+                href="#">
+                вид услуги
+              </a>
+            </div>
 
-              if ( $parent->have_posts() ) : ?>
+            <div class="portfolio-tabs__nav">
+              <?php 
+                $args = array(
+                  'post_type'      => 'page',
+                  'post_parent'    => 295,
+                  'posts_per_page' => -1,
+                );
 
-                <?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
-                  <a href="<?php the_permalink() ?>">
-                    <?php the_title(); ?>
-                  </a>
-                <?php endwhile; ?>
+                $parent = new WP_Query( $args );
 
-            <?php endif; wp_reset_query(); ?>
+                if ( $parent->have_posts() ) : ?>
+
+                  <?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
+                    <a 
+                      class="portfolio-tabs__nav-link 
+                      <?php 
+                        if( $current_page === get_the_ID() ) {
+                          echo 'portfolio-tabs__nav-link--active';
+                        }
+                      ?>" 
+                      href="<?php the_permalink() ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  <?php endwhile; ?>
+
+              <?php endif; wp_reset_query(); ?>
+            </div>
+
+            <div id="portfolio-tabs-items-works" class="portfolio-tabs__items">
+              <?php 
+                $args = array(
+                  'post_type'      => 'page',
+                  'post_parent'    => 293,
+                  'posts_per_page' => -1,
+                );
+
+                $parent = new WP_Query( $args );
+
+                if ( $parent->have_posts() ) : ?>
+
+                  <?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
+
+                    <div class="portfolio-tabs__item">
+                      <?php 
+                        $group = get_field('imgs');
+                        $image = $group['img_1'];
+                        if( $image ) {
+                          echo wp_get_attachment_image( $image['id'], 'full', false, array() );
+                        }
+                      ?>
+                      <span class="portfolio-tabs__item-title"><?php the_title(); ?></span>
+                    </div>
+
+                    <div class="slider-portfolio">
+                      <button class="slider-portfolio__close"></button>
+                      <div class="slider-portfolio__items">
+                        <?php 
+                          $counter = 1;
+                          while ($counter < 5) :
+                            $group = get_field('imgs');
+                            $field_image = 'img_' . $counter;
+                            $image = $group[$field_image];
+                          
+                            if ($image) {
+                              ?>
+                                <div class="slider-portfolio__item">
+                                  <?= wp_get_attachment_image( $image['id'], 'full', false, array() ); ?>
+                                </div>
+                              <?php
+                            } 
+                            $counter++;
+                          endwhile;
+                        ?>
+                      </div>
+                      
+                      <div class="slider-portfolio__controls">
+                        <button class="slider-portfolio__button slider-portfolio__button--prev"></button>
+                        <button class="slider-portfolio__button slider-portfolio__button--next"></button>
+
+                        <ul class="slider-portfolio__thumbnails">
+                          <?php 
+                            $counter = 1;
+                            while ($counter < 5) :
+                              $group = get_field('imgs');
+                              $field_image = 'img_' . $counter;
+                              $image = $group[$field_image];
+                            
+                              if ($image) {
+                                ?>
+                                  <li class="slider-portfolio__thumbnails-item">
+                                    <?= wp_get_attachment_image( $image['id'], 'full', false, array() ); ?>
+                                  </li>
+                                <?php
+                              } 
+                              $counter++;
+                            endwhile;
+                          ?>
+                        </ul>
+
+                      </div>
+
+                      <div class="slider-portfolio__desc">
+                        <h5 class="slider-portfolio__desc-title"><?php the_title(); ?></h5>
+                        <?php the_field('desc'); ?>
+                      </div>
+
+                    </div>
+
+                  <?php endwhile; ?>
+
+              <?php endif; wp_reset_query(); ?>
+            </div>
+
+            <div id="portfolio-tabs-items-services" class="portfolio-tabs__items">
+              <?php 
+                $args = array(
+                  'post_type'      => 'page',
+                  'post_parent'    => get_the_ID(),
+                  'posts_per_page' => -1,
+                );
+
+                $parent = new WP_Query( $args );
+
+                if ( $parent->have_posts() ) : ?>
+
+                  <?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
+
+                    <div class="portfolio-tabs__item">
+                      <?php 
+                        $group = get_field('imgs');
+                        $image = $group['img_1'];
+                        if( $image ) {
+                          echo wp_get_attachment_image( $image['id'], 'full', false, array() );
+                        }
+                      ?>
+                      <span class="portfolio-tabs__item-title"><?php the_title(); ?></span>
+                    </div>
+
+                    <div class="slider-portfolio">
+                      <button class="slider-portfolio__close"></button>
+                      <div class="slider-portfolio__items">
+                        <?php 
+                          $counter = 1;
+                          while ($counter < 5) :
+                            $group = get_field('imgs');
+                            $field_image = 'img_' . $counter;
+                            $image = $group[$field_image];
+                          
+                            if ($image) {
+                              ?>
+                                <div class="slider-portfolio__item">
+                                  <?= wp_get_attachment_image( $image['id'], 'full', false, array() ); ?>
+                                </div>
+                              <?php
+                            } 
+                            $counter++;
+                          endwhile;
+                        ?>
+                      </div>
+
+                      <div class="slider-portfolio__controls">
+                        <button class="slider-portfolio__button slider-portfolio__button--prev"></button>
+                        <button class="slider-portfolio__button slider-portfolio__button--next"></button>
+
+                        <ul class="slider-portfolio__thumbnails">
+                          <?php 
+                            $counter = 1;
+                            while ($counter < 5) :
+                              $group = get_field('imgs');
+                              $field_image = 'img_' . $counter;
+                              $image = $group[$field_image];
+                            
+                              if ($image) {
+                                ?>
+                                  <li class="slider-portfolio__thumbnails-item">
+                                    <?= wp_get_attachment_image( $image['id'], 'full', false, array() ); ?>
+                                  </li>
+                                <?php
+                              } 
+                              $counter++;
+                            endwhile;
+                          ?>
+                        </ul>
+
+                      </div>
+
+                      <div class="slider-portfolio__desc">
+                        <h5 class="slider-portfolio__desc-title"><?php the_title(); ?></h5>
+                        <?php the_field('desc'); ?>
+                      </div>
+
+                    </div>
+
+                  <?php endwhile; ?>
+
+              <?php endif; wp_reset_query(); ?>
+            </div>
+            
           </div>
+
         </div>
       </div>
     </div>
   </section>
-  <?php get_template_part('template-parts/block-footer'); ?>
-</div>
 <?php get_footer(); ?>

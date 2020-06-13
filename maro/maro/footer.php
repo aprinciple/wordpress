@@ -10,9 +10,8 @@
  */
 
 ?>
-
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/fixed-top.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/burger-menu.js"></script>
+<?php get_template_part('template-parts/b-footer'); ?>
+<?php get_template_part('template-parts/b-alert'); ?>
 <?php wp_footer(); ?>
 </body>
 </html>

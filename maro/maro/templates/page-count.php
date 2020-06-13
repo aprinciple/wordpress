@@ -2,50 +2,113 @@
 /*
 Template name: Страница - Рассчитать стоимость
 */
+get_header();
 ?>
-<?php get_header(); ?>
-<div class="wrapper">
-  <div class="bg">
-    <img class="image" src="<?php echo get_template_directory_uri(); ?>/assets/img/backgrounds/bg-count.jpg" alt="Wave">
-    <img class="mask dark-blue" src="<?php echo get_template_directory_uri(); ?>/assets/img/backgrounds/bg-wave.svg" alt="Wave">
-  </div>
-  <?php get_template_part('template-parts/block-header-post') ?>
   <?php get_template_part('template-parts/catalog-nav') ?>
-  <section class="content">
+  <?= do_shortcode( '[form_callback]' ); ?>
+  <section class="content p-count">
     <?php the_post(); ?>
     <div class="container">
       <div class="row">
-        <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-12">
           <div class="head">
             <h2>
               <?php the_title(); ?>
             </h2>
-            <br>
           </div>
           <div class="subhead"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 order-1 order-xs-2 order-lg-first">
-          <?php echo do_shortcode( '[form_count]' ) ?>
-        </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-          <div class="c-info">
-            <?php the_field('count_text'); ?>
+        <div class="col-12">
+          <div class="p-count__promo">
+            <div class="p-count__form">
+              <?php echo do_shortcode( '[form_count]' ) ?>
+            </div>
+            <div class="p-count__promo-text">
+              <?php the_field('count_text'); ?>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="p-count__text p-count__text--darkblue">
+      <div class="container">
+        <p>
+        В силу этого наше производство не является серийным и наша продукция по индивидуальным заказам не имеет сертификата. Тем не менее, все изделия собраны вручную с должным вниманием к качеству и проведением соответсвующих проверок перед сдачей клиенту. Наши рекламные конструкции собираются только из сертифицированных материалов. Пhоверяются начальником производства на соответсвие подписанному техническому заданию и работоспособности.
+        </p>
+      </div>
+    </div>
+
+    <div class="p-count__text p-count__text--image">
+      <div class="container p-count__text-col">
+        <picture class="p-count__text-picture">
+          <source srcset="<?= get_stylesheet_directory_uri(); ?>/assets/img/pic-count-1@1200px.jpg" media="(min-width: 1200px)">
+          <img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/pic-count-1.jpg" alt="Мы гарантируем">
+        </picture>
+        <h3 class="p-count__text-title">Какова гарантия на изделия?</h3>
+        <div class="p-count__text-item p-count__text-item--one">
+          <b>Мы гарантируем</b><br>
+          <p>
+          работоспособность рекламной конструкции, а так же несем гарантию на проведенные дополнительные работы, среди которых и монтажные - в течение 12 месяцев. 
+          </p>
+        </div>
+        <div class="p-count__text-item p-count__text-item--two">
+          <b>Наша компания предоставляет</b><br>
+          <p>
+          гарантию на изделия и виды выполняемых работ от 12 до 36 месяцев в зависимости от материалов из которых изготовлена рекламная конструкция. 
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-count__text p-count__text--darkblue">
+      <div class="container p-count__text-col">
+        <div class="p-count__text-item p-count__text-item--three">
+          <p>
+            <b>Мы гарантируем</b>,<br>
+            что подключение изделия к сети 220В будет осуществлено с использованием провода необходимого сечения без лишних “скруток”.
+          </p>
+        </div>
+        <div class="p-count__text-item p-count__text-item--four">
+          <p>
+            <b>Мы гарантируем</b>,<br>
+            что на монтаже будет присутствовать внимательный специалист с соответствующим опытом работы в нашей рекламной компании.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-count__text p-count__text--double">
+      <div class="container p-count__text-col">
+        <div class="p-count__text-item p-count__text-item--five">
+          <p>
+            <b>Мы гарантируем</b>,<br> что после установки изделий будут переданы все необходимые закрывающие документы.
+          </p>
+        </div>
+        <div class="p-count__text-item p-count__text-item--six">
+          <p>
+          <b>Мы гарантируем</b>,<br> что ваша компания не будет иметь проблем, работая с нами, как с юрлицом, так как мы являемся проверенным контрагентом.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-count__text p-count__text--image">
+      <div class="container">
+        <picture class="p-count__text-picture">
+          <source srcset="<?= get_stylesheet_directory_uri(); ?>/assets/img/pic-count-2@1200px.jpg" media="(min-width: 1200px)">
+          <img src="<?= get_stylesheet_directory_uri(); ?>/assets/img/pic-count-2.jpg" alt="Мы гарантируем">
+        </picture>
+        <p>
+        Мы гарантируем, что ваша конструкция будет в точности соответствовать двустороннему подписанному техническому заданию/договору/проекту. Например, в объемных световых буквах на лицевой части используется молочный акрил 3 мм, а не полистирол 1-2 мм. Светодиоды (светодиодные модули, а не лента) будут установлены таким образом, чтобы изделие имело максимально возможную засветку без затемнений и пересветов. 
+        </p>
+        <p>
+        Наша компания внимательно следит за качеством работы персонала, поэтому в случае возникновения каких либо разногласий, вы всегда можете обратится к Руководителю по общей электронной почте info@maro-reklama.ru с пометкой “Контроль качества, для Михаила”!
+        </p>
+      </div>
+    </div>
+
   </section>
-  <?php get_template_part('template-parts/block-footer'); ?>
-</div>
-<div class="alert">
-  <span class="alert__icon"></span>
-  <div class="alert__message"></div>
-  <button class="alert__close">
-    <svg class="alert__close-icon" enable-background="new 0 0 60.963 60.842" version="1.1" viewBox="0 0 60.963 60.842" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-      <path d="m59.595 52.861-22.501-22.502 22.379-22.379c1.825-1.826 1.825-4.786 0-6.611-1.826-1.825-4.785-1.825-6.611 0l-22.379 22.379-22.378-22.379c-1.826-1.825-4.785-1.825-6.611 0-1.826 1.826-1.826 4.786 0 6.611l22.378 22.379-22.503 22.502c-1.826 1.826-1.826 4.785 0 6.611 0.913 0.913 2.109 1.369 3.306 1.369s2.393-0.456 3.306-1.369l22.502-22.502 22.501 22.502c0.913 0.913 2.109 1.369 3.306 1.369s2.393-0.456 3.306-1.369c1.824-1.825 1.824-4.785-1e-3 -6.611z"/>
-      </svg>
-  </button>
-</div>
-<?php get_template_part('template-parts/footer-page-count'); ?>
+<?php get_footer(); ?>

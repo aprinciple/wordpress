@@ -5,8 +5,9 @@
     <i></i>
     <i></i>
   </span>
-  <span id="menu-mob" class="menu-mob">Меню</span>
+  <span id="menu-mob" class="menu-mob">меню</span>
   <span id="menu-close" class="menu-close">&Cross;</span>
+  <?php get_template_part( 'template-parts/block-social' ); ?>
   <?php wp_nav_menu( ['theme_location' => 'header-menu'] ); ?>
   <ul class="menu-footer">
     <li><a class="white_txt" href="#">Политика конфиденциальности</a></li>
