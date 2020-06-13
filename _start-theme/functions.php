@@ -1,4 +1,5 @@
 <?php
+add_theme_support( 'title-tag' );
 
 // Wrapper function for css
 function enqueue_versioned_style( $handle, $src = false, $deps = array(), $media = 'all' ) {
