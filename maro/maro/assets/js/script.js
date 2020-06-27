@@ -137,6 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if(itemsPortfolio && sliderPortfolio) {
       itemsPortfolio.forEach( (item, i) => {
         item.addEventListener( 'click', () => {
+          let currentScroll = parseInt( window.pageYOffset );
+          let heightPortfolio = parseInt( sliderPortfolio[i].clientHeight );
+          if( window.matchMedia("(min-width: 1200px)").matches ) {
+            sliderPortfolio[i].style.top = `${currentScroll - heightPortfolio - 130}px`;
+          } else {
+            sliderPortfolio[i].style.top = `${currentScroll - heightPortfolio}px`;
+          }
           sliderPortfolio[i].classList.add('open');
         } )
       } );
