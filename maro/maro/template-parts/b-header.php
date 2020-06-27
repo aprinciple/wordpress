@@ -16,13 +16,13 @@
             <div class="header-top__address-item">
               <h6 class="header-top__address-title">Адрес</h6>
               <p class="header-top__address-text">
-              <?php the_field('h_adress'); ?>
+              <?php the_field('h_adress', $frontpage_id); ?>
               </p>
             </div>
             <div class="header-top__address-item">
               <h6 class="header-top__address-title">Режим работы</h6>
               <p class="header-top__address-text">
-              <?php the_field('h_workh'); ?>
+              <?php the_field('h_workh', $frontpage_id); ?>
               </p>
             </div>
           </div>
