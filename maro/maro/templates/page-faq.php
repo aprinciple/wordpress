@@ -102,6 +102,8 @@ get_header();
                 <?php the_field('ask_adn_text-9'); ?>
               </div>
             </div>
+
+            <?php if( get_field('ask_adn_title-10') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-10" type="checkbox">
               <label for="hd-10">
@@ -111,6 +113,9 @@ get_header();
                 <?php the_field('ask_adn_text-10'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-11') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-11" type="checkbox">
               <label for="hd-11">
@@ -120,6 +125,9 @@ get_header();
                 <?php the_field('ask_adn_text-11'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-12') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-12" type="checkbox">
               <label for="hd-12">
@@ -129,6 +137,9 @@ get_header();
                 <?php the_field('ask_adn_text-12'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-13') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-13" type="checkbox">
               <label for="hd-13">
@@ -138,6 +149,9 @@ get_header();
                 <?php the_field('ask_adn_text-13'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-14') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-14" type="checkbox">
               <label for="hd-14">
@@ -147,6 +161,9 @@ get_header();
                 <?php the_field('ask_adn_text-14'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-15') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-15" type="checkbox">
               <label for="hd-15">
@@ -156,6 +173,9 @@ get_header();
                 <?php the_field('ask_adn_text-15'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-16') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-16" type="checkbox">
               <label for="hd-16">
@@ -165,6 +185,9 @@ get_header();
                 <?php the_field('ask_adn_text-16'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-17') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-17" type="checkbox">
               <label for="hd-17">
@@ -174,6 +197,9 @@ get_header();
                 <?php the_field('ask_adn_text-17'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-18') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-18" type="checkbox">
               <label for="hd-18">
@@ -183,6 +209,9 @@ get_header();
                 <?php the_field('ask_adn_text-18'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-19') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-19" type="checkbox">
               <label for="hd-19">
@@ -192,6 +221,9 @@ get_header();
                 <?php the_field('ask_adn_text-19'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-20') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-20" type="checkbox">
               <label for="hd-20">
@@ -201,6 +233,9 @@ get_header();
                 <?php the_field('ask_adn_text-20'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-21') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-21" type="checkbox">
               <label for="hd-21">
@@ -210,6 +245,9 @@ get_header();
                 <?php the_field('ask_adn_text-21'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-22') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-22" type="checkbox">
               <label for="hd-22">
@@ -219,6 +257,9 @@ get_header();
                 <?php the_field('ask_adn_text-22'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-23') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-23" type="checkbox">
               <label for="hd-23">
@@ -228,6 +269,9 @@ get_header();
                 <?php the_field('ask_adn_text-23'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-24') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-24" type="checkbox">
               <label for="hd-24">
@@ -237,6 +281,9 @@ get_header();
                 <?php the_field('ask_adn_text-24'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-25') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-25" type="checkbox">
               <label for="hd-25">
@@ -246,6 +293,9 @@ get_header();
                 <?php the_field('ask_adn_text-25'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-26') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-26" type="checkbox">
               <label for="hd-26">
@@ -255,6 +305,9 @@ get_header();
                 <?php the_field('ask_adn_text-26'); ?>
               </div>
             </div>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-27') ) : ?>
             <div class="dropdown">
               <input class="hide" id="hd-27" type="checkbox">
               <label for="hd-27">
@@ -264,24 +317,31 @@ get_header();
                 <?php the_field('ask_adn_text-27'); ?>
               </div>
             </div>
-            <div class="dropdown">
-              <input class="hide" id="hd-28" type="checkbox">
-              <label for="hd-28">
-                <?php the_field('ask_adn_title-28'); ?>
-              </label>
-              <div>
-                <?php the_field('ask_adn_text-28'); ?>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-28') ) : ?>
+              <div class="dropdown">
+                <input class="hide" id="hd-28" type="checkbox">
+                <label for="hd-28">
+                  <?php the_field('ask_adn_title-28'); ?>
+                </label>
+                <div>
+                  <?php the_field('ask_adn_text-28'); ?>
+                </div>
               </div>
-            </div>
-            <div class="dropdown">
-              <input class="hide" id="hd-29" type="checkbox">
-              <label for="hd-29">
-                <?php the_field('ask_adn_title-29'); ?>
-              </label>
-              <div>
-                <?php the_field('ask_adn_text-29'); ?>
+            <?php endif; ?>
+
+            <?php if( get_field('ask_adn_title-29') ) : ?>
+              <div class="dropdown">
+                <input class="hide" id="hd-29" type="checkbox">
+                <label for="hd-29">
+                  <?php the_field('ask_adn_title-29'); ?>
+                </label>
+                <div>
+                  <?php the_field('ask_adn_text-29'); ?>
+                </div>
               </div>
-            </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
