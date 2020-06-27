@@ -36,7 +36,7 @@ get_header();
               </div>
               <p>
                 <img 
-                  src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/mail.png" 
+                  src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/mail.svg" 
                   alt="Почта">
                 <a 
                   href="mailto:<?php the_field('contacts_email'); ?>">
@@ -55,7 +55,7 @@ get_header();
             </div>
           </div>
           <div class="p-contacts__map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2818.9277412051188!2d38.97248351534137!3d45.046688179098105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f04f786136cd81%3A0x99e6d683d92ee510!2z0YPQuy4g0JHQsNCx0YPRiNC60LjQvdCwLCAyNTIsINCa0YDQsNGB0L3QvtC00LDRgCwg0JrRgNCw0YHQvdC-0LTQsNGA0YHQutC40Lkg0LrRgNCw0LksINCg0L7RgdGB0LjRjywgMzUwMDIw!5e0!3m2!1sru!2sua!4v1591357002759!5m2!1sru!2sua" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5264357957d826917a34cf90429b9adbbedbdae5305de82e1bc8193654ff5ef6&amp;source=constructor" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
           </div>
         </div>
       </div>
