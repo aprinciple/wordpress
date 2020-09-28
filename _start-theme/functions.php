@@ -57,6 +57,16 @@ function aw_custom_add_image_sizes() {
 }
 
 /**
- * Register nav-menus of site
+ * Register nav-menus of theme
  */
 // require get_template_directory() . '/inc/nav_menu.php';
+
+/**
+ * Form
+ */
+// require get_template_directory() . '/inc/form-request.php';
+
+/**
+ * Register custom post type
+ */
+// require get_template_directory() . '/inc/post-type.php';
