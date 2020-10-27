@@ -47,14 +47,31 @@ function theme_add_thumbnails() {
   add_image_size( 'post-project', 800, 865, true );
 }
 
-add_action( 'after_setup_theme', 'aw_custom_add_image_sizes' );
-function aw_custom_add_image_sizes() {
-  add_image_size( 'xsm', 360, 9999 ); // 300px wide unlimited height
-  add_image_size( 'sm', 768, 9999 ); // 768px wide unlimited height
-  add_image_size( 'md', 1024, 9999 ); // 1024px wide unlimited height
-  add_image_size( 'lg', 1280, 9999 ); // 1200px wide unlimited height
-  add_image_size( 'xl', 1920, 9999 ); // 2000px wide unlimited height
+function remove_default_image_sizes( $sizes ) {
+  
+  /* Default WordPress */
+  unset( $sizes[ 'thumbnail' ]);       // Remove Thumbnail (150 x 150 hard cropped)
+  unset( $sizes[ 'medium' ]);          // Remove Medium resolution (300 x 300 max height 300px)
+  unset( $sizes[ 'medium_large' ]);    // Remove Medium Large (added in WP 4.4) resolution (768 x 0 infinite height)
+  unset( $sizes[ 'large' ]);           // Remove Large resolution (1024 x 1024 max height 1024px)
+  
+  /* With WooCommerce */
+  unset( $sizes[ 'shop_thumbnail' ]);  // Remove Shop thumbnail (180 x 180 hard cropped)
+  unset( $sizes[ 'shop_catalog' ]);    // Remove Shop catalog (300 x 300 hard cropped)
+  unset( $sizes[ 'shop_single' ]);     // Shop single (600 x 600 hard cropped)
+  
+  return $sizes;
 }
+add_filter( 'intermediate_image_sizes_advanced', 'remove_default_image_sizes' );
+
+function aw_custom_add_image_sizes() {
+  add_image_size( 'small', 375, 9999 ); // 375px wide unlimited height
+  add_image_size( 'medium', 768, 9999 ); // 768px wide unlimited height
+  add_image_size( 'medium_large', 1024, 9999 ); // 1024px wide unlimited height
+  add_image_size( 'lg', 1200, 9999 ); // 1200px wide unlimited height
+  add_image_size( 'xl', 2000, 9999 ); // 2000px wide unlimited height
+}
+add_action( 'after_setup_theme', 'aw_custom_add_image_sizes' );
 
 /**
  * Register nav-menus of theme
