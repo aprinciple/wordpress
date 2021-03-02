@@ -30,7 +30,6 @@
             <nav class="menu">
               <button class="menu__toggle"></button>
               <div class="menu__wrapper">
-                <a class="menu__logo" href="<?php echo home_url(); ?>"></a>
                 <?php wp_nav_menu( ['theme_location' => 'header-menu'] ); ?>
                 <div class="menu__language-switcher">
                   <?php get_template_part('template-parts/language-switcher') ?>
@@ -49,169 +48,153 @@
         </div>
       </div>
     </div>
-    <div class="header__advert-link">
-      <div class="advert-link">
-        <h3 class="advert-link__title">
-          INCENTIVI PER IL SOSTEGNO ALL’ACQUISTO DI SERVIZI PERL’INTERNAZIONALIZZAZIONE
-        </h3>
-        <a class="advert-link__link" 
-          href="<?php echo home_url(); ?>/incentivi">
-          Maggiori dettagli
-          <i class="advert-link__link-icon"></i>
-        </a>
+
+    <?php if ( $locale === 'it_IT' ) { ?>
+      <div class="header__advert-link">
+        <div class="advert-link">
+          <h3 class="advert-link__title">
+            <?php the_field('promo_link_text'); ?>
+          </h3>
+          <a class="advert-link__link" 
+            href="<?php the_field('promo_link'); ?>">
+            Maggiori dettagli
+            <span class="advert-link__link-icon"></span>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="header__promo-slider">
-      <div class="promo-slider">
-        <div class="promo-slider__items">
-          <div class="promo-slider__item">
-            <div class="promo-slider__container container">
-              <div class="promo-slider__inner">
-                <div class="promo-slider__inner-wrapper">
-                  <h1 class="promo-slider__inner-title">
+    <? } ?>
+
+    <div class="nav-slider">
+      <div class="nav-slider__items">
+        <div class="nav-slider__item">
+          <div class="nav-slider__container container">
+            <div class="nav-slider__inner">
+              <a href="services/<?php the_field('main_slider_link-1') ?>">
+                <h1 class="nav-slider__item-title">
                   <?php the_field('main_slider_title-1'); ?>
-                  </h1>
-                  <p class="promo-slider__inner-text">
+                </h1>
+              </a>
+              <a href="services/<?php the_field('main_slider_link-1') ?>">
+                <p class="nav-slider__item-text">
                   <?php the_field('main_slider_text-1'); ?>
-                  </p>
-                </div>
-                <span class="promo-slider__inner-years">
+                </p>
+              </a>
+              <span class="nav-slider__item-years">
                 <?php the_field('main_slider_years-1'); ?>
-                </span>
-              </div>
+              </span>
+              <a 
+                class="nav-slider__item-link" 
+                href="services/<?php the_field('main_slider_link-1') ?>">
+                <?php the_field('btn_more', $frontpage_id); ?>
+              </a>
             </div>
-            <?php 
-              $image = get_field('main_slider_image-1');
-              if( $image ) {
-                echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
-                  'class' => 'promo-slider__image',
-                ) );
-              }
-            ?>
           </div>
-          <div class="promo-slider__item">
-            <div class="promo-slider__container container">
-              <div class="promo-slider__inner">
-                <div class="promo-slider__inner-wrapper">
-                  <h1 class="promo-slider__inner-title">
-                    <?php the_field('main_slider_title-2'); ?>
-                </h1>
-                  <p class="promo-slider__inner-text">
-                  <?php the_field('main_slider_text-2'); ?>
-                  </p>
-                </div>
-                <span class="promo-slider__inner-years">
-                <?php the_field('main_slider_years-2'); ?>
-                </span>
-              </div>
-            </div>
-            <?php 
-              $image = get_field('main_slider_image-2');
-              if( $image ) {
-                echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
-                  'class' => 'promo-slider__image',
-                ) );
-              }
-            ?>
-          </div>
-          <div class="promo-slider__item">
-            <div class="promo-slider__container container">
-              <div class="promo-slider__inner">
-                <div class="promo-slider__inner-wrapper">
-                  <h1 class="promo-slider__inner-title">
-                    <?php the_field('main_slider_title-3'); ?>
-                </h1>
-                  <p class="promo-slider__inner-text">
-                  <?php the_field('main_slider_text-3'); ?>
-                  </p>
-                </div>
-                <span class="promo-slider__inner-years">
-                <?php the_field('main_slider_years-3'); ?>
-                </span>
-              </div>
-            </div>
-            <?php 
-              $image = get_field('main_slider_image-3');
-              if( $image ) {
-                echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
-                  'class' => 'promo-slider__image',
-                ) );
-              }
-            ?>
-          </div>
-          <div class="promo-slider__item">
-            <div class="promo-slider__container container">
-              <div class="promo-slider__inner">
-                <div class="promo-slider__inner-wrapper">
-                  <h1 class="promo-slider__inner-title">
-                    <?php the_field('main_slider_title-4'); ?>
-                </h1>
-                  <p class="promo-slider__inner-text">
-                  <?php the_field('main_slider_text-4'); ?>
-                  </p>
-                </div>
-                <span class="promo-slider__inner-years">
-                <?php the_field('main_slider_years-4'); ?>
-                </span>
-              </div>
-            </div>
-            <?php 
-              $image = get_field('main_slider_image-4');
-              if( $image ) {
-                echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
-                  'class' => 'promo-slider__image',
-                ) );
-              }
-            ?>
-          </div>
-          <div class="promo-slider__item">
-            <div class="promo-slider__container container">
-              <div class="promo-slider__inner">
-                <div class="promo-slider__inner-wrapper">
-                  <h1 class="promo-slider__inner-title">
-                    <?php the_field('main_slider_title-5'); ?>
-                </h1>
-                  <p class="promo-slider__inner-text">
-                  <?php the_field('main_slider_text-5'); ?>
-                  </p>
-                </div>
-                <span class="promo-slider__inner-years">
-                <?php the_field('main_slider_years-5'); ?>
-                </span>
-              </div>
-            </div>
-            <?php 
-              $image = get_field('main_slider_image-5');
-              if( $image ) {
-                echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
-                  'class' => 'promo-slider__image',
-                ) );
-              }
-            ?>
-          </div>
+          <?php 
+            $image = get_field('main_slider_image-1');
+            if( $image ) {
+              echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
+                'class' => 'nav-slider__item-image',
+              ) );
+            }
+          ?>
         </div>
-        <div class="promo-slider__container container">
-          <div class="promo-slider__nav">
-            <button class="promo-slider__button promo-slider__button--left">
-              <svg class="promo-slider__button-icon" enable-background="new 0 0 476.213 476.213" version="1.1" viewBox="0 0 476.21 476.21" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="476.21 223.11 57.426 223.11 91.819 188.71 70.606 167.5 0 238.11 70.606 308.71 91.819 287.5 57.426 253.11 476.21 253.11" />
-              </svg>
-            </button>
-            <button class="promo-slider__button promo-slider__button--right">
-              <svg class="promo-slider__button-icon" enable-background="new 0 0 476.213 476.213" version="1.1" viewBox="0 0 476.21 476.21" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="405.61 167.5 384.39 188.71 418.79 223.11 0 223.11 0 253.11 418.79 253.11 384.39 287.5 405.61 308.71 476.21 238.11" />
-              </svg>
-            </button>
-            <div class="promo-slider__pointer">
-              <span class="promo-slider__pointer-item">
-          <i class="promo-slider__pointer-num">0</i>
-        </span>
-              <span class="promo-slider__pointer-item promo-slider__pointer-item--amount">
-          /<i class="promo-slider__pointer-amount">0</i>
-        </span>
+        <div class="nav-slider__item">
+          <div class="nav-slider__container container">
+            <div class="nav-slider__inner">
+              <a href="services/<?php the_field('main_slider_link-2') ?>">
+                <h1 class="nav-slider__item-title">
+                  <?php the_field('main_slider_title-2'); ?>
+                </h1>
+              </a>
+              <a href="services/<?php the_field('main_slider_link-2') ?>">
+                <p class="nav-slider__item-text">
+                  <?php the_field('main_slider_text-2'); ?>
+                </p>
+              </a>
+              <span class="nav-slider__item-years">
+                <?php the_field('main_slider_years-2'); ?>
+              </span>
+              <a 
+                class="nav-slider__item-link" 
+                href="services/<?php the_field('main_slider_link-2') ?>">
+                <?php the_field('btn_more', $frontpage_id); ?>
+              </a>
             </div>
           </div>
+          <?php 
+            $image = get_field('main_slider_image-2');
+            if( $image ) {
+              echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
+                'class' => 'nav-slider__item-image',
+              ) );
+            }
+          ?>
+        </div>
+        <div class="nav-slider__item">
+          <div class="nav-slider__container container">
+            <div class="nav-slider__inner">
+              <a href="services/<?php the_field('main_slider_link-3') ?>">
+                <h1 class="nav-slider__item-title">
+                  <?php the_field('main_slider_title-3'); ?>
+                </h1>
+              </a>
+              <a href="services/<?php the_field('main_slider_link-3') ?>">
+                <p class="nav-slider__item-text">
+                  <?php the_field('main_slider_text-3'); ?>
+                </p>
+              </a>
+              <span class="nav-slider__item-years">
+                <?php the_field('main_slider_years-3'); ?>
+              </span>
+              <a 
+                class="nav-slider__item-link" 
+                href="services/<?php the_field('main_slider_link-3') ?>">
+                <?php the_field('btn_more', $frontpage_id); ?>
+              </a>
+            </div>
+          </div>
+          <?php 
+            $image = get_field('main_slider_image-3');
+            if( $image ) {
+              echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
+                'class' => 'nav-slider__item-image',
+              ) );
+            }
+          ?>
+        </div>
+        <div class="nav-slider__item">
+          <div class="nav-slider__container container">
+            <div class="nav-slider__inner">
+              <a href="services/<?php the_field('main_slider_link-4') ?>">
+                <h1 class="nav-slider__item-title">
+                  <?php the_field('main_slider_title-4'); ?>
+                </h1>
+              </a>
+              <a href="services/<?php the_field('main_slider_link-4') ?>">
+                <p class="nav-slider__item-text">
+                  <?php the_field('main_slider_text-4'); ?>
+                </p>
+              </a>
+              <span class="nav-slider__item-years">
+                <?php the_field('main_slider_years-4'); ?>
+              </span>
+              <a 
+                class="nav-slider__item-link" 
+                href="services/<?php the_field('main_slider_link-4') ?>">
+                <?php the_field('btn_more', $frontpage_id); ?>
+              </a>
+            </div>
+          </div>
+          <?php 
+            $image = get_field('main_slider_image-4');
+            if( $image ) {
+              echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
+                'class' => 'nav-slider__item-image',
+              ) );
+            }
+          ?>
         </div>
       </div>
+      <div class="nav-slider__nav container"></div>
     </div>
   </header>

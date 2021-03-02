@@ -8,56 +8,16 @@
 			</h3>
 			<?php the_field('promo_text'); ?>
 		</div>
-		<div class="promo-post__item promo-post__item-slider promo-post__slider">
-			<div class="post-slider">
-				<div class="post-slider__items">
-					<?php 
-						$counter = 1;
-						while ($counter < 4):
-							$slider_images = get_field('promo_slider_slides');
-							$field_image = 'promo_slider_slide-' . $counter;
-							$slider_image = $slider_images[$field_image];
-						
-							if ($slider_image): 
-								echo '<div class="post-slider__item">';
-									echo wp_get_attachment_image( $slider_image['id'], 'xl', false, array( 
-										'class' => 'post-slider__image',
-									) );
-								echo '</div>';
-							endif; 
-
-							$counter++;
-						endwhile;
-					?>
-				</div>
-				<div class="post-slider__container container">
-					<div class="post-slider__nav">
-						<button class="post-slider__button post-slider__button--left">
-							<svg class="post-slider__button-icon" enable-background="new 0 0 476.213 476.213" version="1.1"
-								viewBox="0 0 476.21 476.21" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-								<polygon
-									points="476.21 223.11 57.426 223.11 91.819 188.71 70.606 167.5 0 238.11 70.606 308.71 91.819 287.5 57.426 253.11 476.21 253.11" />
-							</svg>
-						</button>
-						<button class="post-slider__button post-slider__button--right">
-							<svg class="post-slider__button-icon" enable-background="new 0 0 476.213 476.213" version="1.1"
-								viewBox="0 0 476.21 476.21" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-								<polygon
-									points="405.61 167.5 384.39 188.71 418.79 223.11 0 223.11 0 253.11 418.79 253.11 384.39 287.5 405.61 308.71 476.21 238.11" />
-							</svg>
-						</button>
-						<div class="post-slider__pointer">
-							<span class="post-slider__pointer-item">
-								<i class="post-slider__pointer-num">0</i>
-							</span>
-							<span class="post-slider__pointer-item post-slider__pointer-item--amount">
-								/<i class="post-slider__pointer-amount">0</i>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="promo-post__item page-post-news__promo-post-item-picture">
+      <?php 
+        $image = get_field('promo_img');
+        if( $image ) {
+          echo wp_get_attachment_image( $image['id'], 'xl', false, array( 
+            'class' => 'page-post-news__promo-post-item-picture-image',
+          ) );
+        }
+      ?>
+    </div>
 	</div>
 </section>
 <section class="about-us-info-block">
@@ -173,8 +133,8 @@
 						<p class="landmarks__item-figcaption-text"><?php the_field('landmarks__item-6'); ?></p>
 					</div>
 				</div>
+				<div class="landmarks__logo"></div>
 			</div>
-			<div class="landmarks__logo"></div>
 		</div>
 	</div>
 </section>

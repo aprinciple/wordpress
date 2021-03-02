@@ -26,7 +26,7 @@
               class="contacts__item-messenger-item contacts__item-messenger-item-telegram" 
               href="tg://resolve?domain=<?php the_field('contacts_item_it_tm', $frontpage_id); ?>">
               <svg class="contacts__item-messenger-item-icon">
-                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
+                <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
               </svg>
             </a>
             <a 
@@ -34,7 +34,7 @@
               href="https://wa.me/<?php the_field('contacts_item_it_wp', $frontpage_id); ?>"
               target="_blank">
               <svg class="contacts__item-messenger-item-icon">
-                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
+                <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
               </svg>
             </a>
           </div>
@@ -54,7 +54,7 @@
               class="contacts__item-messenger-item contacts__item-messenger-item-telegram" 
               href="tg://resolve?domain=<?php the_field('contacts_item_ru_tm', $frontpage_id); ?>">
               <svg class="contacts__item-messenger-item-icon">
-                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
+                <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
               </svg>
             </a>
             <a 
@@ -62,7 +62,7 @@
               href="https://wa.me/<?php the_field('contacts_item_ru_wp', $frontpage_id); ?>"
               target="_blank">
               <svg class="contacts__item-messenger-item-icon">
-                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
+                <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
               </svg>
             </a>
           </div>
@@ -78,9 +78,7 @@
       </p>
     </section>
   </div>
-  <div class="page-contacts__form">
-    <?php echo do_shortcode( '[form_contact]' ) ?>
-  </div>
+  <?php echo do_shortcode( '[form_contact]' ) ?>
 </main>
 <?php get_template_part('template-parts/block-alert'); ?>
 <?php get_footer(); ?>

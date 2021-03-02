@@ -12,11 +12,11 @@
     </div>
   </div>
 </section>
-<main class="page-projects__main container">
+<main class="page-projects__main container main-content">
   <?php
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
     $args = array(
-      'posts_per_page' => 10,
+      'posts_per_page' => 4,
       'order'          => 'DESC',
       'post_type'      => 'post-project',
       'paged'          => $paged
@@ -28,7 +28,7 @@
       while( $loop->have_posts() ) {
         $loop->the_post();
         ?>
-        <div class="note-project">
+        <div class="note-project main-content__item">
           <div class="note-project__picture">
             <?php if ( has_post_thumbnail()) { ?>
               <?php the_post_thumbnail('full', 
@@ -45,7 +45,7 @@
             <?php the_excerpt() ?>
             </div>
             <footer class="note-project__article-info">
-              <span class="note-project__article-info-tag">Digital lighting</span>
+              <!-- <span class="note-project__article-info-tag">Digital lighting</span> -->
               <span class="note-project__article-info-year">
               <?php echo get_the_date('Y'); ?>
               year
@@ -64,5 +64,18 @@
       wp_reset_postdata();
     } 
   ?>
+  <nav class="pagination">
+    <?php
+      $big = 99999;
+      echo paginate_links( array(
+        'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+        'format' => '?paged=%#%',
+        'current' => max( 1, get_query_var('paged') ),
+        'total' => $loop->max_num_pages,
+        'prev_text' => '&laquo;',
+        'next_text' => '&raquo;'
+      ) );
+    ?>
+  </nav>
 </main>
 <?php get_footer(); ?>

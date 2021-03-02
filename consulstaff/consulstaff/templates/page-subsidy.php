@@ -370,13 +370,13 @@ Template Name: Субсидия
             <div class="contacts__item-messenger-items">
               <a class="contacts__item-messenger-item contacts__item-messenger-item-telegram" href="tg://resolve?domain=<?php the_field('contacts_telegram'); ?>">
                 <svg class="contacts__item-messenger-item-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
+                  <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
                 </svg>
               </a>
               <a class="contacts__item-messenger-item contacts__item-messenger-item-whatsapp" href="https://wa.me/<?php the_field('contacts_whatsapp'); ?>"
               target="_blank">
                 <svg class="contacts__item-messenger-item-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
+                  <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
                 </svg>
               </a>
             </div>

@@ -2,7 +2,14 @@
   "post_types": {
     "post-staff": {},
     "post-referral": {},
+    "objects": {},
     "post-project": {},
-    "post-news": {}
+    "post-news": {},
+    "post-library": {}
+  },
+  "taxonomies": {
+    "referral": {},
+    "objects-direction": {},
+    "project": {}
   }
 }

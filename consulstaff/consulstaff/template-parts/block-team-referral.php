@@ -24,10 +24,10 @@
       }
 
       $args = array(
-        'orderby'      => 'date',
-        'order'        => 'ASC',
-        'post_type'    => 'post-referral',
-        'tax_query'    => array(
+        'orderby'          => 'date',
+        'order'          => 'ASC',
+        'post_type'      => 'post-referral',
+        'tax_query' => array(
           array(
             'taxonomy' => 'referral',
             'field'    => 'slug',

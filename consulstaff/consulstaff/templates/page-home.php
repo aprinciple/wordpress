@@ -1,3 +1,6 @@
+<?php 
+  $frontpage_id = get_option( 'page_on_front' ); 
+?>
 <?php get_header(); ?>
   <section class="home-about-us">
     <div class="home-about-us__container container">
@@ -64,61 +67,120 @@
   </section>
   <section class="home-services">
     <div class="home-services__container container">
-      <div class="home-services__item home-services__item--text">
-        <h3 class="home-services__title"><?php the_field('home_services_title'); ?></h3>
+      <div class="home-services__item home-services__item-text">
+        <h3 class="home-services__title">
+          <?php the_field('home_services_title'); ?>
+        </h3>
         <?php the_field('home_services_text'); ?>
-        <a class="home-services__button button button-arrow" href="<?php echo home_url(); ?>/services">
-          <span class="button-arrow__text"><?php the_field('home_services_button'); ?></span>
-        </a>
       </div>
-      <div class="home-services__item home-services__item--list">
-        <ul class="home-services__list">
-          <li class="home-services__list-item">
-            <a class="home-services__list-link home-services__list-link--active" href="<?php echo home_url(); ?>/business" data-image="<?php echo get_template_directory_uri(); ?>/assets/img/bg-home-services.jpg">
-            <?php the_field('home_services_menu_item-1'); ?>
-            </a>
-          </li>
-          <li class="home-services__list-item">
-            <a class="home-services__list-link" href="<?php echo home_url(); ?>/corporate" data-image="<?php echo get_template_directory_uri(); ?>/assets/img/bg-home-services-2.jpg">
-            <?php the_field('home_services_menu_item-2'); ?>
-            </a>
-          </li>
-          <li class="home-services__list-item">
-            <a class="home-services__list-link" href="<?php echo home_url(); ?>/merger" data-image="<?php echo get_template_directory_uri(); ?>/assets/img/bg-home-services-3.jpg">
-            <?php the_field('home_services_menu_item-3'); ?>
-            </a>
-          </li>
-          <li class="home-services__list-item">
-            <a class="home-services__list-link" href="<?php echo home_url(); ?>/investing" data-image="<?php echo get_template_directory_uri(); ?>/assets/img/bg-home-services-4.jpg">
-            <?php the_field('home_services_menu_item-4'); ?>
-            </a>
-          </li>
-          <li class="home-services__list-item">
-            <a class="home-services__list-link" href="<?php echo home_url(); ?>/design" data-image="<?php echo get_template_directory_uri(); ?>/assets/img/bg-home-services-5.jpg">
-            <?php the_field('home_services_menu_item-5'); ?>
-            </a>
-          </li>
-          <li class="home-services__list-photo">
-            <img class="home-services__list-photo-image" src="" alt="Services">
-          </li>
-        </ul>
+      <div class="home-services__item home-services__cards">
+        <article class="home-services__card">
+          <svg class="home-services__card-icon">
+            <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#services-business"></use>
+          </svg>
+          <h4 class="home-services__card-title">
+            <?php the_field('home_services_item_title-1'); ?>
+          </h4>
+          <p class="home-services__card-text">
+            <?php the_field('home_services_item_text-1'); ?>
+          </p>
+          <a 
+            class="home-services__card-link" 
+            href="<?php the_field('home_services_item_link-1'); ?>">
+            <svg class="home-services__card-link-icon">
+              <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#arrow-long"></use>
+            </svg>
+            <?php the_field('btn_more', $frontpage_id); ?>
+          </a>
+        </article>
+        <article class="home-services__card">
+          <svg class="home-services__card-icon">
+            <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#services-corporate"></use>
+          </svg>
+          <h4 class="home-services__card-title">
+            <?php the_field('home_services_item_title-2'); ?>
+          </h4>
+          <p class="home-services__card-text">
+            <?php the_field('home_services_item_text-2'); ?>
+          </p>
+          <a 
+            class="home-services__card-link" 
+            href="<?php the_field('home_services_item_link-2'); ?>">
+            <svg class="home-services__card-link-icon">
+              <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#arrow-long"></use>
+            </svg>
+            <?php the_field('btn_more', $frontpage_id); ?>
+          </a>
+        </article>
+        <article class="home-services__card">
+          <svg class="home-services__card-icon">
+            <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#services-planning"></use>
+          </svg>
+          <h4 class="home-services__card-title">
+            <?php the_field('home_services_item_title-3'); ?>
+          </h4>
+          <p class="home-services__card-text">
+            <?php the_field('home_services_item_text-3'); ?>
+          </p>
+          <a 
+            class="home-services__card-link" 
+            href="<?php the_field('home_services_item_link-3'); ?>">
+            <svg class="home-services__card-link-icon">
+              <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#arrow-long"></use>
+            </svg>
+            <?php the_field('btn_more', $frontpage_id); ?>
+          </a>
+        </article>
+        <article class="home-services__card">
+          <svg class="home-services__card-icon">
+            <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#services-design"></use>
+          </svg>
+          <h4 class="home-services__card-title">
+            <?php the_field('home_services_item_title-4'); ?>
+          </h4>
+          <p class="home-services__card-text">
+            <?php the_field('home_services_item_text-4'); ?>
+          </p>
+          <a 
+            class="home-services__card-link" 
+            href="<?php the_field('home_services_item_link-4'); ?>">
+            <svg class="home-services__card-link-icon">
+              <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#arrow-long"></use>
+            </svg>
+            <?php the_field('btn_more', $frontpage_id); ?>
+          </a>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="page-home__projects">
+  <section class="page-home__projects"
+    <?php if ( get_field( 'is_project' ) ): ?>
+      style="display: none;"
+    <?php endif; ?>
+  >
     <?php get_template_part('template-parts/block-projects'); ?>
   </section>
 
-  <section class="page-home__news-advert news-advert">
+  <section class="page-home__objects-sale">
+    <?php get_template_part('template-parts/block-objects-sale'); ?>
+  </section>
+
+  <section class="page-home__news-advert news-advert"
+    <?php if ( get_field( 'home_news_is' ) ): ?>
+      style="display: none;"
+    <?php endif; ?>
+  >
     <div class="news-advert__container container">
-      <div class="news-advert__aside">
+      <aside class="news-advert__aside">
         <h3 class="news-advert__title"><?php the_field('home_news_title'); ?></h3>
         <p class="news-advert__text"><?php the_field('home_news_subtitle'); ?></p>
-      </div>
+      </aside>
       <div class="news-advert__wrapper news-advert__cards">
       <?php
         $args = array(
+          'posts_per_page' => -1,
+          'nopaging'      => true,
           'order'          => 'DESC',
           'post_type'      => 'post-news',
         );
@@ -131,6 +193,12 @@
             ?>
             <a class="news-advert__card" href="<?php the_permalink(); ?>">
               <article class="card">
+                <div class="card__date">
+                  <?php the_time( 'j F' ); ?>
+                  <span class="card__date-years">
+                    <?php the_time( 'Y' ); ?>
+                  </span>
+                </div>
                 <div class="card__picture">
                   <?php 
                     $image = get_field('promo_image');
@@ -164,8 +232,7 @@
       <span class="button-arrow__text"><?php the_field('home_news_button'); ?></span>
     </a>
   </section>
-
-  <section class="home-contacts">
+  <!-- <section class="home-contacts">
     <div class="home-contacts__container container">
       <div class="home-contacts__item home-contacts__item--contacts contacts">
         <h4 class="home-contacts__title contacts__title">
@@ -184,14 +251,14 @@
             <div class="contacts__item-messenger-items">
               <a class="contacts__item-messenger-item contacts__item-messenger-item-telegram" href="tg://resolve?domain=<?php the_field('contacts_item_it_tm'); ?>">
                 <svg class="contacts__item-messenger-item-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
+                  <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
                 </svg>
               </a>
               <a 
                 class="contacts__item-messenger-item contacts__item-messenger-item-whatsapp" href="https://wa.me/<?php the_field('contacts_item_it_wp'); ?>"
                 target="_blank">
                 <svg class="contacts__item-messenger-item-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
+                  <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
                 </svg>
               </a>
             </div>
@@ -210,14 +277,14 @@
               <a 
                 class="contacts__item-messenger-item contacts__item-messenger-item-telegram" href="tg://resolve?domain=<?php the_field('contacts_item_ru_tm'); ?>">
                 <svg class="contacts__item-messenger-item-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
+                  <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#telegram"></use>
                 </svg>
               </a>
               <a 
                 class="contacts__item-messenger-item contacts__item-messenger-item-whatsapp" href="https://wa.me/<?php the_field('contacts_item_ru_wp'); ?>"
                 target="_blank">
                 <svg class="contacts__item-messenger-item-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
+                  <use href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#whatsapp"></use>
                 </svg>
               </a>
             </div>
@@ -238,6 +305,6 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <?php get_template_part('template-parts/block-alert'); ?>
 <?php get_footer(); ?>

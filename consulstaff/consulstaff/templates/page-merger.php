@@ -17,21 +17,6 @@
   </div>
 </section>
 <main class="page-merger__main container">
-  <div class="advert-link page-merger__advert-link">
-    <div class="page-merger__advert-link-wrapper">
-      <h3 class="advert-link__title">
-        <?php the_field('advert_link_text'); ?>
-      </h3>
-      <a class="advert-link__link page-merger__advert-link-link" 
-        href="<?php the_field('advert_link_link'); ?>"
-        target="_blank">
-        <?php the_field('advert_link_link_txt'); ?>
-      </a>
-    </div>
-    <a class="page-merger__advert-link-logo" 
-      href="<?php the_field('advert_link_link'); ?>">
-    </a>
-  </div>
   <div class="page-merger__slogan">
     <h5 class="page-merger__slogan-title">
       <?php the_field('slogan_title'); ?>

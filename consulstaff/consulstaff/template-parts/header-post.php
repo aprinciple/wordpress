@@ -30,7 +30,6 @@
             <nav class="menu">
               <button class="menu__toggle"></button>
               <div class="menu__wrapper">
-                <a class="menu__logo" href="<?php echo home_url(); ?>"></a>
                 <?php wp_nav_menu( ['theme_location' => 'header-menu'] ); ?>
                 <div class="menu__language-switcher">
                   <?php get_template_part('template-parts/language-switcher') ?>

@@ -74,9 +74,10 @@ function form_subsidy_fields() {
 function handler_form_subsidy() {
 
   if ( isset($_POST['id_form_subsidy']) && wp_verify_nonce($_POST['form_subsidy_nonce'], 'form-subsidy-nonce') ) {
-    $name   = $_POST["user_name"];
-    $email   = $_POST["user_email"];
-    $text   = $_POST["user_text"];
+    $name  = htmlentities( trim( $_POST["user_name"] ) );
+    $email = htmlentities( trim( $_POST["user_email"] ) );
+    $text  = htmlentities( trim( $_POST["user_text"] ) );
+    $headers = 'From: Consulstaff <bando.veneto@consulstaff.com>';
     define('SITE_KEY', '6LfWx9IUAAAAAEhy2MbEGZ5c0ScWhM9yHkE8_QNU');
     define('SECRET_KEY', '6LfWx9IUAAAAALdH4Xm7HQ1DY9WclNaiYiWwARQ3');
 
@@ -94,7 +95,7 @@ function handler_form_subsidy() {
       $message = "Имя:\r\n". $name ."\r\n\r\n";
       $message .= "Почта:\r\n". $email ."\r\n\r\n";
       $message .= "Сообщение:\r\n". $text ."\r\n\r\n";
-      $response_mail = wp_mail( $to, $subject, $message, $headers = '');
+      $response_mail = wp_mail( $to, $subject, $message, $headers);
     }
 
   }

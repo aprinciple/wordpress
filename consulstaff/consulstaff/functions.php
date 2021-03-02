@@ -5,8 +5,10 @@
   add_action( 'after_setup_theme', 'theme_register_nav_menu' );
   add_action('init', 'consull_post_type_staff');
   add_action('init', 'consull_post_type_referral');
-  add_action('init', 'consull_post_type_project');
+  add_action('init', 'consull_post_type_objects');
+  // add_action('init', 'consull_post_type_project'); old version
   add_action('init', 'consull_post_type_news');
+  add_action('init', 'consull_post_type_library');
   add_action( 'after_setup_theme', 'theme_add_thumbnails' );
 
   // Wrapper function for css
@@ -23,8 +25,49 @@
   function theme_styles_scripts() {
     enqueue_versioned_style( 'style', '/assets/css/default.css' );
     enqueue_versioned_script( 'script', '/assets/js/script.js', array(), true );
+  }
+
+  add_action('wp', 'recaptcha_for_needed_pages');
+  function recaptcha_for_needed_pages() {
+    if( is_front_page() )
+      add_action( 'wp_enqueue_scripts', 'script_recaptcha' );
+
+    if( is_page('contacts') )
+      add_action( 'wp_enqueue_scripts', 'script_recaptcha' );
+
+    if( is_page_template('templates/page-subsidy.php') )
+      add_action( 'wp_enqueue_scripts', 'script_recaptcha' );
+  }
+
+  function script_recaptcha() {
     wp_enqueue_script('recaptcha', 'https://www.google.com/recaptcha/api.js?render=6LfWx9IUAAAAAEhy2MbEGZ5c0ScWhM9yHkE8_QNU', array(), null, '');
   }
+
+    // Script of Tiny Slider
+    add_action('wp', 'tiny_slider_for_pages');
+    function tiny_slider_for_pages() {
+      if( is_page_template('templates/page-objects.php') )
+        add_action( 'wp_enqueue_scripts', 'script_tiny_slider' );
+  
+      if ( get_post_type() === 'objects' )
+        add_action( 'wp_enqueue_scripts', 'script_tiny_slider' );
+    }
+    function script_tiny_slider() {
+      wp_enqueue_script('tiny-slider', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.js', '', '', false);
+    }
+  
+    // Style of Tiny Slider
+    add_action('wp', 'style_tiny_slider_for_pages');
+    function style_tiny_slider_for_pages() {
+      if( is_page_template('templates/page-objects.php') )
+        add_action( 'wp_enqueue_scripts', 'style_tiny_slider' );
+  
+      if ( get_post_type() === 'objects' )
+        add_action( 'wp_enqueue_scripts', 'style_tiny_slider' );
+    }
+    function style_tiny_slider() {
+      wp_enqueue_style('tiny-slider', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css', '', '', '');
+    }
 
   // Setting name of title for every page of site
   function theme_title() {
@@ -101,10 +144,10 @@ function aw_custom_add_image_size_names( $sizes ) {
       return $classes;
     }
 
-    if( is_page('projects') ) {
-      $classes[] = 'page-projects';
-      return $classes;
-    }
+    // if( is_page('projects') ) {
+    //   $classes[] = 'page-projects';
+    //   return $classes;
+    // }
 
     if( is_page('news') ) {
       $classes[] = 'page-news';
@@ -126,14 +169,29 @@ function aw_custom_add_image_size_names( $sizes ) {
       return $classes;
     }
 
-    // Posts
-    if ( get_post_type() === 'post-project' ) {
-      $classes[] = 'page-post-project';
+    if( is_page_template('templates/page-projects.php') ) {
+      $classes[] = 'page-library';
       return $classes;
     }
 
+    if( is_page_template('templates/page-objects.php') ) {
+      $classes[] = 'p-objects';
+      return $classes;
+    }
+
+    // Posts
+    // if ( get_post_type() === 'post-project' ) {
+    //   $classes[] = 'page-post-project';
+    //   return $classes;
+    // }
+
     if ( get_post_type() === 'post-news' ) {
       $classes[] = 'page-post-news';
+      return $classes;
+    }
+
+    if ( get_post_type() === 'objects' ) {
+      $classes[] = 'p-object';
       return $classes;
     }
 
@@ -157,7 +215,6 @@ function aw_custom_add_image_size_names( $sizes ) {
   require get_template_directory() . '/inc/post-type.php';
 
   //  Include templates
-
   add_filter('template_include', 'my_template');
   function my_template( $template ) {
 
@@ -197,10 +254,10 @@ function aw_custom_add_image_size_names( $sizes ) {
         return $new_template;
     }
 
-    if( is_page('projects') ) {
-      if ( $new_template = locate_template( array( 'templates/page-projects.php' ) ) )
-        return $new_template;
-    }
+    // if( is_page('projects') ) {  // old version
+    //   if ( $new_template = locate_template( array( 'templates/page-projects.php' ) ) )
+    //     return $new_template;
+    // }
 
     if( is_page('news') ) {
       if ( $new_template = locate_template( array( 'templates/page-news.php' ) ) )
@@ -237,12 +294,12 @@ function aw_custom_add_image_size_names( $sizes ) {
       }
     }
 
-    if ( get_post_type() === 'post-project' ) {
-      $new_template = locate_template( array( 'templates/post-project.php' ) );
-      if ( '' != $new_template ) {
-          return $new_template;
-      }
-    }
+    // if ( get_post_type() === 'post-project' ) { old version
+    //   $new_template = locate_template( array( 'templates/post-project.php' ) );
+    //   if ( '' != $new_template ) {
+    //       return $new_template;
+    //   }
+    // }
 
     if ( get_post_type() === 'post-news' ) {
       $new_template = locate_template( array( 'templates/post-news.php' ) );
@@ -262,8 +319,8 @@ function aw_custom_add_image_size_names( $sizes ) {
     register_taxonomy( 'referral', [ 'post-referral' ], [ 
       'label'                 => '',
       'labels'                => [
-        'name'              => 'Направление',
-        'singular_name'     => 'Направление',
+        'name'              => wpm_translate_string('[:it]Direzione[:en]Direction[:ru]Направление'),
+        'singular_name'     => wpm_translate_string('[:it]Direzione[:en]Direction[:ru]Направление'),
         'search_items'      => 'Найти направление',
         'all_items'         => 'Все направления',
         'view_item '        => 'Посмотреть направление',
@@ -273,12 +330,44 @@ function aw_custom_add_image_size_names( $sizes ) {
         'update_item'       => 'Обновить направление',
         'add_new_item'      => 'Добавить новое направление',
         'new_item_name'     => 'Новое имя направления',
-        'menu_name'         => 'Направление',
+        'menu_name'         => wpm_translate_string('[:it]Direzione[:en]Direction[:ru]Направление'),
       ],
       'description'           => '',
       'public'                => true,
-      'hierarchical'          => false,
+      'hierarchical'          => true,
 
+      'rewrite'               => true,
+      // 'query_var'             => $taxonomy, // название параметра запроса
+      'capabilities'          => array(),
+      'meta_box_cb'           => null,
+      'show_admin_column'     => false,
+      'show_in_rest'          => null,
+      'rest_base'             => null,
+    ] );
+  }
+
+  add_action( 'init', 'taxonomy_objects' );
+  function taxonomy_objects(){
+
+    register_taxonomy( 'objects-direction', [ 'objects' ], [ 
+      'label'               => '',
+      'labels'              => [
+        'name'              => wpm_translate_string('[:it]Direzione[:en]Direction[:ru]Направление'),
+        'singular_name'     => wpm_translate_string('[:it]Direzione[:en]Direction[:ru]Направление'),
+        'search_items'      => 'Найти направление',
+        'all_items'         => 'Все направления',
+        'view_item '        => 'Посмотреть направление',
+        'parent_item'       => 'Родитель направления',
+        'parent_item_colon' => 'Родитель направления:',
+        'edit_item'         => 'Редактировать направление',
+        'update_item'       => 'Обновить направление',
+        'add_new_item'      => 'Добавить новое направление',
+        'new_item_name'     => 'Новое имя направления',
+        'menu_name'         => wpm_translate_string('[:it]Direzione[:en]Direction[:ru]Направление'),
+      ],
+      'description'           => '',
+      'public'                => true,
+      'hierarchical'          => true,
       'rewrite'               => true,
       // 'query_var'             => $taxonomy, // название параметра запроса
       'capabilities'          => array(),
@@ -290,38 +379,38 @@ function aw_custom_add_image_size_names( $sizes ) {
   }
 
   // Таксономия для "Проекты
-  add_action( 'init', 'taxonomy_project' );
-  function taxonomy_project(){
+  // add_action( 'init', 'taxonomy_project' ); // Old version
+  // function taxonomy_project(){
 
-    register_taxonomy( 'project', [ 'post-project' ], [ 
-      'label'                 => '',
-      'labels'                => [
-        'name'              => 'Проекты',
-        'singular_name'     => 'Проекты',
-        'search_items'      => 'Найти проекты',
-        'all_items'         => 'Все проекты',
-        'view_item '        => 'Посмотреть проекты',
-        'parent_item'       => 'Родитель проекты',
-        'parent_item_colon' => 'Родитель проекты:',
-        'edit_item'         => 'Редактировать проекты',
-        'update_item'       => 'Обновить проекты',
-        'add_new_item'      => 'Добавить новое проекты',
-        'new_item_name'     => 'Новое имя проекты',
-        'menu_name'         => 'Проекты',
-      ],
-      'description'           => '',
-      'public'                => true,
-      'hierarchical'          => false,
+  //   register_taxonomy( 'project', [ 'post-project' ], [ 
+  //     'label'                 => '',
+  //     'labels'                => [
+  //       'name'              => wpm_translate_string('[:it]Progetti[:en]Projects[:ru]Проекты'),
+  //       'singular_name'     => wpm_translate_string('[:it]Progetti[:en]Projects[:ru]Проекты'),
+  //       'search_items'      => 'Найти проекты',
+  //       'all_items'         => 'Все проекты',
+  //       'view_item '        => 'Посмотреть проекты',
+  //       'parent_item'       => 'Родитель проекты',
+  //       'parent_item_colon' => 'Родитель проекты:',
+  //       'edit_item'         => 'Редактировать проекты',
+  //       'update_item'       => 'Обновить проекты',
+  //       'add_new_item'      => 'Добавить новое проекты',
+  //       'new_item_name'     => 'Новое имя проекты',
+  //       'menu_name'         => wpm_translate_string('[:it]Progetti[:en]Projects[:ru]Проекты'),
+  //     ],
+  //     'description'           => '',
+  //     'public'                => true,
+  //     'hierarchical'          => true,
 
-      'rewrite'               => true,
-      // 'query_var'             => $taxonomy, // название параметра запроса
-      'capabilities'          => array(),
-      'meta_box_cb'           => null,
-      'show_admin_column'     => false,
-      'show_in_rest'          => null,
-      'rest_base'             => null,
-    ] );
-  }
+  //     'rewrite'               => true,
+  //     // 'query_var'             => $taxonomy, // название параметра запроса
+  //     'capabilities'          => array(),
+  //     'meta_box_cb'           => null,
+  //     'show_admin_column'     => false,
+  //     'show_in_rest'          => null,
+  //     'rest_base'             => null,
+  //   ] );
+  // }
 
   
   /**
@@ -344,5 +433,3 @@ function aw_custom_add_image_size_names( $sizes ) {
       add_action( 'edit_form_after_title', [ 'WP_Privacy_Policy_Content', 'notice' ] );
     } );
   }
-
-?>
