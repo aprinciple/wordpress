@@ -49,7 +49,7 @@ function form_request_fields() {
     </form>
     <script>
       grecaptcha.ready(function() {
-        grecaptcha.execute('6LfK3uAUAAAAADkInJv9kTtSxSlW9VOk-Txt0uVq', {action: 'request'})
+        grecaptcha.execute('SITE_KEY', {action: 'request'})
           .then(function(token) {
             document.getElementById('g-recaptcha-response-request').value=token;
           });
@@ -65,11 +65,11 @@ function handler_form_request() {
   if ( isset($_POST['id_form_request']) && wp_verify_nonce($_POST['form_request_nonce'], 'form-request-nonce') ) {
     $practice   = $_POST["user_practice"];
     $email      = $_POST["user_email"];
-    define('SITE_KEY', '6LfK3uAUAAAAADkInJv9kTtSxSlW9VOk-Txt0uVq');
-    define('SECRET_KEY', '6LfK3uAUAAAAAGJPSQl6ijQW1icOo_mrw6hzQeWr');
+    define('SITE_KEY', 'SITE_KEY');
+    define('SECRET_KEY', 'SECRET_KEY');
 
     function getCaptcha2($secretKey) {
-      $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret="."6LfK3uAUAAAAAGJPSQl6ijQW1icOo_mrw6hzQeWr"."&response={$secretKey}");
+      $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret="."SECRET_KEY"."&response={$secretKey}");
       $return = json_decode($response);
       return $return;
     }
