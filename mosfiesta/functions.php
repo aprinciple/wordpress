@@ -90,6 +90,3 @@ function aw_custom_add_image_sizes() {
  * Register custom post type
  */
 require get_template_directory() . '/inc/post-type.php';
-
-// Reset styles WP CF7
-add_filter('wpcf7_autop_or_not', '__return_false');
