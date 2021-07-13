@@ -15,6 +15,7 @@ function enqueue_versioned_script( $handle, $src = false, $deps = array(), $in_f
  * Register and enqueue styles
  */
 function theme_register_css() {
+  wp_enqueue_style('animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
   enqueue_versioned_style('main', '/assets/css/style.css');
 }
 add_action('wp_enqueue_scripts', 'theme_register_css');

@@ -15,7 +15,12 @@ add_shortcode('form_request', 'short_form_request');
 function form_request_fields() {
   $frontpage_id = get_option( 'page_on_front' );
   ob_start(); ?>
-    <form class="form form--post subscription__form" action="" method="POST">
+    <form 
+      class="form form--post subscription__form" 
+      action="" 
+      method="POST" 
+      data-san="animate__fadeIn" data-san-delay="600"
+    >
       <input class="form__input subscription__form-input" type="email" name="email" placeholder="Электронная почта" required />
       <button class="button form__button subscription__form-button" type="submit">
         Подписаться

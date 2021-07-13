@@ -548,24 +548,70 @@ ul {
 }
 
 .header {
+  position: relative;
   padding-top: 25px;
-  padding-bottom: 30px;
-  background: #6a3093;
-  background: linear-gradient(90deg, #6a3093 0%, #5a20b9 100%);
+  padding-bottom: 50px;
+  background-image: url("../img/bg-header.jpg");
+  background-size: cover;
+  background-position: right top;
+  background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   .header {
     padding-bottom: 75px;
+    background-size: contain;
   }
 }
 @media (min-width: 1200px) {
   .header {
+    height: 870px;
     padding-bottom: 135px;
   }
 }
 @media (min-width: 1600px) {
   .header {
+    height: 1050px;
     padding-bottom: 250px;
+  }
+}
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: #6a3093;
+  background: linear-gradient(90deg, #6a3093 0%, #5a20b9 100%);
+  -webkit-clip-path: polygon(0 0, 80% 0, 50% 100%, 0 100%);
+          clip-path: polygon(0 0, 80% 0, 50% 100%, 0 100%);
+}
+@media (min-width: 992px) {
+  .header::before {
+    -webkit-clip-path: polygon(0 0, 64% 0, 41% 100%, 0 100%);
+            clip-path: polygon(0 0, 64% 0, 41% 100%, 0 100%);
+  }
+}
+@media (min-width: 1200px) {
+  .header::before {
+    -webkit-clip-path: polygon(0 0, 61.5% 0, 41% 100%, 0 100%);
+            clip-path: polygon(0 0, 61.5% 0, 41% 100%, 0 100%);
+  }
+}
+@media (min-width: 1600px) {
+  .header::before {
+    -webkit-clip-path: polygon(0 0, 66% 0, 41% 100%, 0 100%);
+            clip-path: polygon(0 0, 66% 0, 41% 100%, 0 100%);
   }
 }
 .header__bar {
@@ -583,20 +629,29 @@ ul {
   position: relative;
   z-index: 11;
 }
+.header__menu {
+  z-index: 3;
+}
+
 .promo {
+  position: relative;
+  z-index: 2;
   display: grid;
   color: #fff;
 }
 @media (min-width: 768px) {
   .promo {
-    grid-template-columns: 1fr 1fr;
-    -moz-column-gap: 50px;
-         column-gap: 50px;
+    max-width: 65%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .promo {
-    grid-template-columns: 1fr 0.9fr;
+    max-width: 55%;
+  }
+}
+@media (min-width: 1600px) {
+  .promo {
+    max-width: 55%;
   }
 }
 
@@ -633,12 +688,6 @@ ul {
     margin-top: 80px;
     font-size: 44px;
     line-height: 53px;
-  }
-}
-
-@media (min-width: 768px) {
-  .promo__image {
-    grid-row: span 5;
   }
 }
 

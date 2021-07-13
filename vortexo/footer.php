@@ -1,8 +1,8 @@
 <footer class="footer">
   <div class="container footer__wrapper">
     <div class="subscription footer__subscription">
-      <h6 class="subscription__title">Подпишитесь на нашу рассылку</h6>
-      <p class="subscription__subtitle">
+      <h6 class="subscription__title" data-san="animate__fadeInLeft">Подпишитесь на нашу рассылку</h6>
+      <p class="subscription__subtitle" data-san="animate__fadeInUp" data-san-delay="300">
         Будьте в курсе наших новостей и новых предложений
       </p>
       <?= do_shortcode( '[form_request]' ); ?>
