@@ -1,0 +1,131 @@
+a{text-decoration:none;color:#3498db;}
+a:hover{text-decoration:underline;color:#3498db;}
+
+input[type=text]:focus,input[type=email]:focus,input[type=password]:focus, textarea:focus{ border: 1px solid #6c6c6c; }	
+	
+input[type=submit]{
+background: #2ecc71;
+}
+input[type=submit]:hover{
+background: #27ae60;
+}
+
+#header{
+background: #2ecc71;
+}
+
+.topmenu li:hover > a, .topmenu li.current-menu-item > a{
+background: #2ecc71 url(images/marr2.png) no-repeat center bottom;
+border-bottom: 2px solid #27ae60;
+}
+.topmenu ul ul{
+background: #27ae60;
+}
+.topmenu ul ul ul{
+border-left: 1px solid #2ebf6b;
+}
+
+h1.titlepage{
+color: #27ae60;
+}
+.text h4{color:#27ae60; }
+.text ul li{background:url(images/wliarr2.png) no-repeat 0 3px;}
+.text ol{color:#27ae60;}
+.hometext ul li, .fcwidget ul li{background:url(images/wliarr2.png) no-repeat 0 3px;}
+.hometext ol, .fcwidget ol{color:#27ae60;}
+
+.metabox{
+color: #3498db;
+}
+.metaboxleft{background: url(images/bo3.png) no-repeat 0 1px;}
+
+a.uostat.bt_success{
+color: #27ae60;
+}
+
+table.stattable{
+background: #27ae60;
+}
+table.statusertable{
+background: #27ae60;
+}
+.promouserdiv h3{
+color: #27ae60;
+}
+.promouserdiv h4, .paytable_title, .exbprezboxtitle{
+color: #27ae60;
+}
+
+.sitemaptitle, .tariftitle{
+background: #2ecc71;
+}
+ul.smap li{ background:url(images/wliarr2.png) no-repeat 0 3px; }
+.tavnstr div{
+background: url(images/wliarr2.png) no-repeat center center;
+}
+
+.lobmlinepr{
+background: url(images/wliarr2.png) no-repeat 0 30px;
+}	
+.exchboxtool{
+background: #27ae60;
+}
+.exchboxtoolvnug{
+background: url(images/ug2.png) no-repeat;
+}
+.onehline:hover .onehlinetext, .onehline.act .onehlinetext, a.onehrine.active .onehrinetext, a.onehrine:hover .onehrinetext, a.onehrine.active .onehrinerezerv, a.onehrine:hover .onehrinerezerv{
+color: #27ae60;
+}
+.zaprosvalutrelvn{
+color: #3498db;
+}
+	.zaprosvalutrelvn span{
+	color: #3498db;
+	border-bottom: 1px dotted #3498db;
+	}
+
+.uswidinright{
+color: #2ecc71;
+}	
+
+.bexbcurs_arr{
+background: url(images/wliarr2.png) no-repeat 0 5px;
+}
+
+.statuswork_widgetvn{
+background: url(images/online2.png) no-repeat 0 0;
+}
+.offline .statuswork_widgetvn{
+background: url(images/offline2.png) no-repeat 0 0;
+}
+	
+table.rewtable td{ color: #27ae60; }	
+	
+.widget ul li{
+background:url(images/wliarr2.png) no-repeat 0 3px;
+}
+.widget_news_date{
+background: #2ecc71;
+}
+.widget_reviews_author{
+color: #27ae60;
+}
+	.widget_reviews_author a{
+	color: #27ae60;
+	}	
+
+.pagenavi span{
+background: #2ecc71;
+}	
+
+.partners_div{
+background: #2ecc71; 
+}	
+
+.footer_right ul li a{
+color: #3498db;
+text-decoration: none;
+}
+.footer_right ul li a:hover{
+text-decoration: underline;
+}	

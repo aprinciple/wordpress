@@ -1,0 +1,123 @@
+a{text-decoration:none;color:#3ab0d4;}
+a:hover{text-decoration:underline;color:#3ab0d4;}
+
+input[type=text]:focus,input[type=email]:focus,input[type=password]:focus, textarea:focus{  border: 1px solid #4fc2e5; }	
+	
+input[type=submit], a.rsubmita{
+background: #eb444d;
+}
+input[type=submit]:hover, a.rsubmita:hover{
+background: #c72e33;
+}
+	input[type=submit].rsubmitdel{
+	background: #444444;
+	}
+	input[type=submit].rsubmitdel:hover{background: #2a2a2a;}
+
+#header{
+background: #eb444d;
+}
+
+.topmenu li:hover > a, .topmenu li.current-menu-item > a{
+background: #4fc2e5 url(images/marr4.png) no-repeat center bottom;
+border-bottom: 2px solid #3e93b0;
+}
+.topmenu ul ul{
+background: #3e93b0;
+}
+.topmenu ul ul ul{
+border-left: 1px solid #45a5c6;
+}
+
+h1.titlepage{
+color: #eb444d;
+}
+.text h4{ color:#eb444d; }
+.text ul li{background:url(images/wliarr4.png) no-repeat 0 3px;}
+.text ol{color:#eb444d;}
+
+.hometext ul li, .fcwidget ul li{background:url(images/wliarr4.png) no-repeat 0 3px;}
+.hometext ol, .fcwidget ol{color:#eb444d;}
+
+.metabox{
+color: #eb444d;
+}
+.metaboxleft{background: url(images/bo4.png) no-repeat 0 1px;}
+
+a.uostat.bt_success{
+color: #eb444d;
+}
+
+table.stattable{
+background: #eb444d;
+}
+table.statusertable{
+background: #eb444d;
+}
+.promouserdiv h3{
+color: #eb444d;
+}
+.promouserdiv h4, .paytable_title, .exbprezboxtitle{
+color: #eb444d;
+}
+
+.sitemaptitle, .tariftitle{
+background: #eb444d;
+}
+ul.smap li{ background:url(images/wliarr4.png) no-repeat 0 3px; }
+.tavnstr div{
+background: url(images/wliarr3.png) no-repeat center center;
+}
+
+.lobmlinepr{
+background: url(images/wliarr4.png) no-repeat 0 30px;
+}	
+.exchboxtool{
+background: #eb444d;
+}
+.exchboxtoolvnug{
+background: url(images/ug4.png) no-repeat;
+}
+.onehline:hover .onehlinetext, .onehline.act .onehlinetext, a.onehrine.active .onehrinetext, a.onehrine:hover .onehrinetext, a.onehrine.active .onehrinerezerv, a.onehrine:hover .onehrinerezerv{
+color: #3ab0d4;
+}
+.zaprosvalutrelvn{
+color: #3498db;
+}
+	.zaprosvalutrelvn span{
+	color: #3498db;
+	border-bottom: 1px dotted #3498db;
+	}
+
+.bexbcurs_arr{
+background: url(images/wliarr4.png) no-repeat 0 5px;
+}	
+
+.statuswork_widgetvn{
+background: url(images/online4.png) no-repeat 0 0;
+}
+.offline .statuswork_widgetvn{
+background: url(images/offline4.png) no-repeat 0 0;
+}			
+table.rewtable td{ color: #eb444d; }
+	
+.widget ul li{
+background:url(images/wliarr4.png) no-repeat 0 3px;
+}
+.widget_news_date{
+background: #4fc2e5;
+}
+.widget_reviews_author{
+color: #eb444d;
+}
+	.widget_reviews_author a{
+	color: #eb444d;
+	}	
+	
+.pagenavi span{
+background: #eb444d;
+}	
+	
+.partners_div{
+background: #4fc2e5; 
+}	
